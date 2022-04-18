@@ -4,11 +4,11 @@
  */
 package com.mycompany.omniview.monitoracao.verificacao;
 
-import com.mycompany.omniview.monitoracao.loginswing.TelaLogin;
-import com.mycompany.omniview.monitoracao.loginswing.TelaOpcao;
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.monitoracao.Connection;
-import com.mycompany.omniview.monitoracao.usuario.User;
+import jswing.TelaLogin;
+import jswing.TelaOpcao;
+import com.mycompany.omniview.monitoracao.User;
 
 import java.util.List;
 
@@ -18,16 +18,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class AutenticarLogin {
 
+    Looca looca = new Looca();
+
     private String email;
     private String senha;
     private String id;
 
-    public AutenticarLogin(String email, String senha) {
-        this.email = email;
-        this.senha = senha;
-        this.id = id;
-    }
+    
 
+        
     public AutenticarLogin() {
     }
 
@@ -35,8 +34,10 @@ public class AutenticarLogin {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         List emailUsuariosBanco = con.queryForList("SELECT EMAIL FROM "
-                + "TB_USUARIO WHERE ID=1");
+                + "USUARIO WHERE EMAIL=?", email);
+        System.out.println(emailUsuariosBanco);
         return emailUsuariosBanco.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+
     }
 
     public String getSenha() {
@@ -44,12 +45,23 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
         List senhaUsuariosBanco = con.queryForList("SELECT SENHA FROM "
-                + "TB_USUARIO  WHERE ID=1");
+                + "USUARIO SENHA=?", senha);
+        System.out.println(senhaUsuariosBanco);
         return senhaUsuariosBanco.get(0).toString().replace("{SENHA=", "").replace("}", "");
     }
 
     public String getId() {
-        return this.id;
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public AutenticarLogin(String email, String senha, String id) {
+        this.email = email;
+        this.senha = senha;
+        this.id = id;
     }
 
     public static void CriarTabela() {
@@ -57,16 +69,15 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
         System.out.println("Criando tabela e inserindo dados...");
-        con.execute("DROP TABLE IF EXISTS USUARIOS");
-        con.execute("CREATE TABLE USUARIOS (ID INT"
+        con.execute("DROP TABLE IF EXISTS USUARIO");
+        con.execute("CREATE TABLE USUARIO (ID INT"
                 + " PRIMARY KEY AUTO_INCREMENT,"
                 + " EMAIL VARCHAR(45), SENHA  VARCHAR(45)"
                 + ", TIPO CHAR(1));");
-        con.execute("INSERT INTO USUARIOS VALUES"
+        con.execute("INSERT INTO USUARIO VALUES"
                 + "(null, 'teste@email.com', 'teste', null);");
 
     }
-
 
     public static void AutenticarLogin(String email, String senha,
             String emailUsuarioBanco, String senhaUsuarioBanco) {
@@ -74,10 +85,10 @@ public class AutenticarLogin {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
-        List<User> usuario = con.query("SELECT EMAIL, SENHA FROM TB_USUARIO "
+        List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
                 new BeanPropertyRowMapper<>(User.class), email, senha);
-        List<User> usuarioId = con.query("SELECT ID FROM TB_USUARIO "
+        List<User> usuarioId = con.query("SELECT ID FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
                 new BeanPropertyRowMapper<>(User.class), email, senha);
         if (usuario.isEmpty()) {
@@ -85,28 +96,30 @@ public class AutenticarLogin {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
         } else {
+
             TelaOpcao tela = new TelaOpcao(usuarioId);
             tela.setVisible(true);
-            TelaLogin teste = new TelaLogin();
-            teste.setVisible(false);
-
             JOptionPane.showMessageDialog(null, "Autenticado");
-
+            
+            System.out.println(usuarioId);
+            
         }
 
     }
+  
 
-    public static void RegistrarCaixa(java.awt.event.ActionEvent evt,
-            Boolean checkCaixa, String id) {
-
+    public static void RegistrarCaixa(java.awt.event.ActionEvent evt, Boolean checkCaixa) {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+           
         if (checkCaixa = true) {
-            JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
-            con.update("UPDATE TB_USUARIO SET TIPO='C' WHERE ID=1");
+            //JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
+            // con.update("UPDATE USUARIOS SET TIPO='C' WHERE ID=?", id);
+            con.update("UPDATE USUARIO SET TIPO='C' WHERE EMAIL=?",
+                    new BeanPropertyRowMapper<>(User.class), email);
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "TB_USUARIO WHERE ID=1 ");
+                    + "USUARIO WHERE EMAIL=?");
             System.out.println(teste);
             System.out.println("Caixa cadastrado");
 
@@ -121,10 +134,10 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         if (checkTotem = true) {
             JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-            con.execute("UPDATE TB_USUARIO SET TIPO='T'  WHERE ID=1");
+            con.execute("UPDATE USUARIO SET TIPO='T'  WHERE ID=?");
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "TB_USUARIO WHERE ID =1");
+                    + "USUARIO WHERE ID =?");
 
             teste.get(0).toString().replace("{EMAIL=", "").replace("}", "");
             System.out.println(teste);
@@ -136,6 +149,7 @@ public class AutenticarLogin {
         }
 
     }
+
     public static void AbrirLogin() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

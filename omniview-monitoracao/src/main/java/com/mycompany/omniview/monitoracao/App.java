@@ -18,7 +18,12 @@ public class App {
         Looca looca = new Looca();
 
         // Usuario usuario1 = new Usuario(01, "teste@email.com", "teste");
-        //AutenticarLogin.CriarTabela();
+       // AutenticarLogin.CriarTabela();
         AutenticarLogin.AbrirLogin();
     }
+    
+    
+    
+    
+        
 }
