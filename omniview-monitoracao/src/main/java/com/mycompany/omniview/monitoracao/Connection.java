@@ -4,6 +4,7 @@
  */
 package com.mycompany.omniview.monitoracao;
 
+import com.mysql.cj.xdevapi.Statement;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
