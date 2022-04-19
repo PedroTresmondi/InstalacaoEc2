@@ -35,14 +35,9 @@ public class User {
         this.id = id;
     }
 
-    public void getHostName() {
-        try {
-            hostName = InetAddress.getLocalHost().getHostName();
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         con.update("UPDATE usuario set hostname = ? where id = 100;",hostName);
-    }
+   
+    
+   
 
     //StringBuilder createStatement = new StringBuilder();
     public String getEmail() {
@@ -73,7 +68,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "email =" + email + "senha =" + senha + "Hostname =" +hostName;
+        return "email =" + email + "senha =" + senha;
     }
 
 }

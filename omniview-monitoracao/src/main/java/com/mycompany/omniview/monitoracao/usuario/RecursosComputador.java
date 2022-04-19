@@ -85,7 +85,7 @@ public class RecursosComputador {
                 + "Total de bits: %d \n"
                 + "Sistema Operacional: %s \n"
                 + " \n"
-                + "Arquitetura do sistema: %dx "
+                + "Arquitetura do sistema: x%d "
                 + "\n"
                 + "-------Memória-------"
                 + "\n %.2f", processador, bitMaquina,
