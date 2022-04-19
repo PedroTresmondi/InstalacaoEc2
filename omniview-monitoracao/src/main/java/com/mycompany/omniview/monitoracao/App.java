@@ -5,15 +5,19 @@
 package com.mycompany.omniview.monitoracao;
 
 import com.mycompany.omniview.monitoracao.verificacao.AutenticarLogin;
+import com.github.britooo.looca.api.core.Looca;
+import com.mycompany.omniview.monitoracao.usuario.User;
+
+import org.springframework.jdbc.core.JdbcTemplate;
 
 public class App {
 
     public static void main(String[] args) {
-       
 
         // Usuario usuario1 = new Usuario(01, "teste@email.com", "teste");
-       // AutenticarLogin.CriarTabela();
+        //AutenticarLogin.CriarTabela();
         AutenticarLogin.AbrirLogin();
+       
 
     }
 }

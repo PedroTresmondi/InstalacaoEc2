@@ -5,7 +5,11 @@
 package com.mycompany.omniview.monitoracao.usuario;
 
 import com.mycompany.omniview.monitoracao.Connection;
-import java.util.List;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -20,6 +24,7 @@ public class User {
     private String email;
     private String senha;
     private Integer id;
+    private String hostName;
 
     public User() {
     }
@@ -30,9 +35,18 @@ public class User {
         this.id = id;
     }
 
+    public void getHostName() {
+        try {
+            hostName = InetAddress.getLocalHost().getHostName();
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         con.update("UPDATE usuario set hostname = ? where id = 100;",hostName);
+    }
+
     //StringBuilder createStatement = new StringBuilder();
     public String getEmail() {
-        
+
         return email;
     }
 
@@ -41,7 +55,7 @@ public class User {
     }
 
     public String getSenha() {
-  
+
         return senha;
     }
 
@@ -59,8 +73,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "email =" + email + "senha =" + senha;
+        return "email =" + email + "senha =" + senha + "Hostname =" +hostName;
     }
 
-    
 }
