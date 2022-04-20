@@ -49,8 +49,8 @@ public class MedicoesComputador {
         //HORARIO
         //insert na tabela recursos(tabela estatica onde mostra o 
         //TOTAL de cada componente)
-        con.update("INSERT INTO medicoes(id,ram,disco,cpuM,processos,"
-                + "diaHorario, Fk_MaqRe) VALUES (null, ?, ?,?,?,now(),500)",
+        con.update("INSERT INTO medicoes(ram,disco,cpuM,processos,"
+                + "diaHorario, Fk_MaqRe) VALUES (?,?,?,?,GETDATE(),500)",
                  memoriaRam,discoTotal,cpuTotal,processos);
 
     }

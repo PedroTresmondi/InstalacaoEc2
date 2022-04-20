@@ -18,7 +18,10 @@ public class TesteRecursos {
         System.out.println("Gravando dados na tabela Maquina");
 
         recMemoria.informacoesDoSistemaTotal();
-        System.out.println("Gravando dados na tabela Recursos");
+        System.out.println("Gravando dados na tabela Medicoes");
+        
+        infoSistema.inserirHostName();
+        System.out.println("Pegando Hostname e inserindo em MAQUINA");
         
         
         System.out.println(infoSistema.toString());

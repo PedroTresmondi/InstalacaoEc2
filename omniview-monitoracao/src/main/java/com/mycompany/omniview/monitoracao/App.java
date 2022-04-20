@@ -22,14 +22,5 @@ public class App {
         // Usuario usuario1 = new Usuario(01, "teste@email.com", "teste");
         //AutenticarLogin.CriarTabela();
         AutenticarLogin.AbrirLogin();
-
-        try {
-            String Inet = InetAddress.getLocalHost().getHostName();
-            con.update("UPDATE USUARIO SET HOSTNAME  = ? WHERE ID = 100", Inet);
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-
     }
 }

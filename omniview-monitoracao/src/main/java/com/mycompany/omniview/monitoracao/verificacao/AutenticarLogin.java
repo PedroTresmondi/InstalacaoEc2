@@ -9,6 +9,7 @@ import com.mycompany.omniview.monitoracao.loginswing.TelaOpcao;
 import com.mycompany.omniview.monitoracao.Connection;
 import com.mycompany.omniview.monitoracao.usuario.TesteRecursos;
 import com.mycompany.omniview.monitoracao.usuario.User;
+import java.net.InetAddress;
 
 import java.util.List;
 
@@ -30,7 +31,6 @@ public class AutenticarLogin {
 
     public AutenticarLogin() {
     }
-    
     
     
 
@@ -85,6 +85,7 @@ public class AutenticarLogin {
 
             JOptionPane.showMessageDialog(null, "Autenticado");
             TesteRecursos.inserirDados();
+            
         }
     }
 

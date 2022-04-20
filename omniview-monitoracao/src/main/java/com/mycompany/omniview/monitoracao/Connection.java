@@ -17,11 +17,12 @@ public class Connection {
     public Connection() {
      
         this.datasource = new BasicDataSource();
-        this.datasource.setDriverClassName("jdbc:sqlserver://svr-omniview.database.windows.net:1433;database=meu_banco;user=admin-ominiview@svr-omniview;password={2ads#grupo7};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
-        //this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        this.datasource.setUrl("jdbc:sqlserver://meubanco.database.windows.net/meu_banco");
+        //this.datasource.setDriverClassName("jdbc:sqlserver://meubanco.database.windows.net/meu_banco");
+        this.datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        this.datasource.setUrl( "jdbc:sqlserver://svr-omniview.database.windows.net:1433;database=meu_banco;user=admin-ominiview@svr-omniview;password={2ads#grupo7};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+       
         //this.datasource.setUrl("jdbc:mysql://localhost:3306/omniview?useTimezone=true&serverTimezone=UTC");
-        this.datasource.setUsername("admin-omniview");
+        this.datasource.setUsername("admin-ominiview");
         this.datasource.setPassword("2ads#grupo7");
 
         // Não irá funcionar se você não criar um container exatamente igual o meu.

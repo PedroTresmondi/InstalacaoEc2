@@ -7,6 +7,7 @@ package com.mycompany.omniview.monitoracao.usuario;
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.monitoracao.Connection;
 import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,7 +30,6 @@ public class RecursosComputador {
     private List processos;
     private Integer quantidadeDiscos;
     private Double cpuTotal;
- 
 
     Looca looca = new Looca();
 
@@ -54,11 +54,11 @@ public class RecursosComputador {
         memoriaRamTotal = memoriaRamByte / 1073741824.0;
 
         quantidadeDiscos = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
-        
-   
 
         //Insert na tabela maquina
-        con.update("INSERT INTO MAQUINA VALUES (null, null, ?,?,?,?,?,null)",
+        con.update("INSERT INTO MAQUINA (tipo,sistemaOperacional,"
+                + "ramTotal,arquitetura,processador,disco,Fk_EstMaq)"
+                + "VALUES (null,?,?,?,?,?, 1)",
                 sistemaOperacional, memoriaRamTotal,
                 arquiteturaSis, processador, quantidadeDiscos);
 
@@ -79,6 +79,29 @@ public class RecursosComputador {
         }
     }
 
+    public void inserirHostName() {
+        Connection config = new Connection();
+        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
+
+        try {
+            String Inet = InetAddress.getLocalHost().getHostName();
+            con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE ID = 100", Inet);
+
+        } catch (UnknownHostException ex) {
+            Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    /*
+     InetAddress.getLocalHost().getHostName()
+                    
+                    } catch (UnknownHostException ex) {
+            Logger.getLogger(AutenticarLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+ insertHostName(){
+        InetAddress.getLocalHost().getHostName()
+     */
     @Override
     public String toString() {
         return String.format("Processador: %s \n"
@@ -91,5 +114,5 @@ public class RecursosComputador {
                 + "\n %.2f", processador, bitMaquina,
                 sistemaOperacional, arquiteturaSis, memoriaRamTotal);
     }
-    
+
 }
