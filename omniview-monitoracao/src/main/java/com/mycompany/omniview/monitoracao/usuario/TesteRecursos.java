@@ -12,20 +12,13 @@ public class TesteRecursos {
 
     public static void inserirDados() {
         RecursosComputador infoSistema = new RecursosComputador();
-        MedicoesComputador recMemoria = new MedicoesComputador();
+        RecursosComputador recMemoria = new RecursosComputador();
 
         infoSistema.informacoesDoSistemaAtual();
         System.out.println("Gravando dados na tabela Maquina");
 
-        recMemoria.informacoesDoSistemaTotal();
-        System.out.println("Gravando dados na tabela Medicoes");
-        
-        infoSistema.inserirHostName();
-        System.out.println("Pegando Hostname e inserindo em MAQUINA");
-        
-        
-        System.out.println(infoSistema.toString());
-        
+        infoSistema.informacoesDoSistemaTotal();
+        System.out.println("Gravando dados na tabela Recursos");
     }
 
 }
