@@ -55,45 +55,10 @@ public class RecursosComputador {
 
         quantidadeDiscos = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
 
-        //Insert na tabela maquina
-        con.update("INSERT INTO MAQUINA (tipo,sistemaOperacional,"
-                + "ramTotal,arquitetura,processador,disco,Fk_EstMaq)"
-                + "VALUES (null,?,?,?,?,?, 1)",
-                sistemaOperacional, memoriaRamTotal,
-                arquiteturaSis, processador, quantidadeDiscos);
-
     }
+}
 
-    public void informacaomemoria() {
-        //Pega as informações da memoria a cada 5 segundos
-        while (true) {
-
-            // try = tentar , se der erro vai pro catch
-            // thread = tarefas 
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(TesteRecursos.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            System.out.println(looca.getMemoria());
-        }
-    }
-
-    public void inserirHostName() {
-        Connection config = new Connection();
-        JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-
-        try {
-            String Inet = InetAddress.getLocalHost().getHostName();
-            con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE ID = 100", Inet);
-
-        } catch (UnknownHostException ex) {
-            Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
-    /*
+/*
      InetAddress.getLocalHost().getHostName()
                     
                     } catch (UnknownHostException ex) {
@@ -101,18 +66,4 @@ public class RecursosComputador {
         }
  insertHostName(){
         InetAddress.getLocalHost().getHostName()
-     */
-    @Override
-    public String toString() {
-        return String.format("Processador: %s \n"
-                + "Total de bits: %d \n"
-                + "Sistema Operacional: %s \n"
-                + " \n"
-                + "Arquitetura do sistema: x%d "
-                + "\n"
-                + "-------Memória-------"
-                + "\n %.2f", processador, bitMaquina,
-                sistemaOperacional, arquiteturaSis, memoriaRamTotal);
-    }
-
-}
+ */

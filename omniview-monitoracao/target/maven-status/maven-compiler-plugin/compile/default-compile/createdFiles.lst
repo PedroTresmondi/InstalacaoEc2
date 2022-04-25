@@ -1,6 +1,7 @@
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$3.class
 com\mycompany\omniview\monitoracao\Connection.class
 com\mycompany\omniview\monitoracao\loginswing\TelaLogin$1.class
+com\mycompany\omniview\monitoracao\verificacao\AutenticarLogin$2.class
 com\mycompany\omniview\monitoracao\usuario\MedicoesComputador.class
 com\mycompany\omniview\monitoracao\verificacao\AutenticarLogin$1.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$5.class
@@ -13,5 +14,5 @@ com\mycompany\omniview\monitoracao\usuario\RecursosComputador.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$4.class
 com\mycompany\omniview\monitoracao\usuario\User.class
 com\mycompany\omniview\monitoracao\App.class
-com\mycompany\omniview\monitoracao\usuario\TesteRecursos.class
+com\mycompany\omniview\monitoracao\loginswing\TelaLogin$3.class
 com\mycompany\omniview\monitoracao\loginswing\TelaOpcao$1.class
