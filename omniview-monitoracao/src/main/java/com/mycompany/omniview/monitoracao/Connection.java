@@ -15,12 +15,13 @@ public class Connection {
     // Exemplo de configuração utilizando H2
     // Obs. O código comentado é um exemplo de como se conectar ao mysql
     public Connection() {
-     
+         
+        
         this.datasource = new BasicDataSource();
         //this.datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         this.datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         //this.datasource.setUrl("jdbc:sqlserver://meubanco.database.windows.net/meubanco");
-        this.datasource.setUrl("jdbc:mysql://localhost:3306/meubanco");
+        this.datasource.setUrl("jdbc:mysql://localhost:3306/omniview");
         this.datasource.setUsername("root");
         this.datasource.setPassword("M3e4r7y1!");
 
