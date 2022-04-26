@@ -56,9 +56,24 @@ public class RecursosComputador {
         quantidadeDiscos = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
 
     }
-}
 
-/*
+    public void informacaomemoria() {
+        //Pega as informações da memoria a cada 5 segundos
+        while (true) {
+
+            // try = tentar , se der erro vai pro catch
+            // thread = tarefas 
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(TesteRecursos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(looca.getMemoria());
+        }
+    }
+
+    
+    /*
      InetAddress.getLocalHost().getHostName()
                     
                     } catch (UnknownHostException ex) {
@@ -66,4 +81,18 @@ public class RecursosComputador {
         }
  insertHostName(){
         InetAddress.getLocalHost().getHostName()
- */
+     */
+    @Override
+    public String toString() {
+        return String.format("Processador: %s \n"
+                + "Total de bits: %d \n"
+                + "Sistema Operacional: %s \n"
+                + " \n"
+                + "Arquitetura do sistema: x%d "
+                + "\n"
+                + "-------Memória-------"
+                + "\n %.2f", processador, bitMaquina,
+                sistemaOperacional, arquiteturaSis, memoriaRamTotal);
+    }
+
+}

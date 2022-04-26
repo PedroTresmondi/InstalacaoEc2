@@ -10,13 +10,12 @@ import com.mycompany.omniview.monitoracao.loginswing.TelaOpcao;
 import com.mycompany.omniview.monitoracao.Connection;
 import com.mycompany.omniview.monitoracao.usuario.MedicoesComputador;
 import com.mycompany.omniview.monitoracao.usuario.RecursosComputador;
+import com.mycompany.omniview.monitoracao.usuario.TesteRecursos;
 import com.mycompany.omniview.monitoracao.usuario.User;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -64,6 +63,7 @@ public class AutenticarLogin {
 
     public void AutenticarLogin(String email, String senha,
             String emailUsuarioBanco, String senhaUsuarioBanco) {
+
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
@@ -78,20 +78,20 @@ public class AutenticarLogin {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
         } else {
-            informacaomemoria();
-            inserirMaquinas(emailUsuarioBanco);
+            inserirDados();
+
             TelaOpcao tela = new TelaOpcao(usuarioId);
             tela.setVisible(true);
             TelaLogin teste = new TelaLogin();
             teste.setVisible(false);
 
             this.email = emailUsuarioBanco;
-            System.out.println("Email do banco: " + emailUsuarioBanco);
+            System.out.println("Email do banco" + emailUsuarioBanco);
             JOptionPane.showMessageDialog(null, "Autenticado");
             //inserirHostName
             try {
                 String Inet = InetAddress.getLocalHost().getHostName();
-                con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE  proprietarioMaq =?", Inet, this.email);
+                con.update("UPDATE MAQUINA SET HOSTNAME  = ? WHERE  ID = 500", Inet);
 
             } catch (UnknownHostException ex) {
                 Logger.getLogger(RecursosComputador.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,7 +113,7 @@ public class AutenticarLogin {
 
     Looca looca = new Looca();
 
-    public void informacoesDoSistema() {
+    public void informacoesDoSistemaAtual() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
 
@@ -138,11 +138,9 @@ public class AutenticarLogin {
 
     }
 
-    public void inserirMaquinas(String emailUsuarioBanco) {
-        informacoesDoSistema();
+    public void inserirMaquinas() {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        this.email = emailUsuarioBanco;
 
         con.update("INSERT INTO MAQUINA(hostName,proprietarioMaq,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
@@ -150,47 +148,35 @@ public class AutenticarLogin {
                 + " (null,?,null,?,?,?,?,?,?)", this.email, sistemaOperacional, memoriaRamTotal,
                 arquiteturaSis, processador, quantidadeDiscos, 1);
 
+       
     }
-
-    public void informacaomemoria() {
-        int delay = 10000;   // delay de 10 seg.
-        int interval = 1000;  // intervalo de 1 seg.
-        Timer timer = new Timer();
-
-        timer.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                inserirDados();
-            }
-        }, delay, interval);
-    }
-    
-    
-    
 
     public static void inserirDados() {
         RecursosComputador infoSistema = new RecursosComputador();
         MedicoesComputador recMemoria = new MedicoesComputador();
 
-        recMemoria.informacoesDoSistema();
+        infoSistema.informacoesDoSistemaAtual();
+        System.out.println("Gravando dados na tabela Maquina");
+
+        recMemoria.informacoesDoSistemaTotal();
         System.out.println("Gravando dados na tabela Medicoes");
 
         System.out.println(infoSistema.toString());
 
     }
 
-    public void RegistrarCaixa(java.awt.event.ActionEvent evt,
-            Boolean checkCaixa, String emailUsuarioBanco) {
+
+    public static void RegistrarCaixa(java.awt.event.ActionEvent evt,
+            Boolean checkCaixa, String id) {
+
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-        this.email = emailUsuarioBanco;
-
         if (checkCaixa = true) {
             JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
-            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = 500");
+            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID=500");
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA  WHERE ID =500");
-
+                    + "MAQUINA WHERE ID=500 ");
             System.out.println(teste);
             System.out.println("Caixa cadastrado");
 
@@ -199,19 +185,17 @@ public class AutenticarLogin {
         }
     }
 
-    public void RegistrarTotem(java.awt.event.ActionEvent evt,
-            Boolean checkTotem, String email) {
+    public static void RegistrarTotem(java.awt.event.ActionEvent evt,
+            Boolean checkTotem) {
         Connection config = new Connection();
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-
-        this.email = email;
-        System.out.println("email do totem : " + email);
         if (checkTotem = true) {
             JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-            con.update("UPDATE MAQUINA SET TIPO='T'WHERE ID = 500");
+            con.execute("UPDATE MAQUINA SET TIPO='T'  WHERE ID=500");
 
             List teste = con.queryForList("SELECT * FROM "
-                    + "MAQUINA WHERE ID = 500");
+                    + "MAQUINA WHERE ID =500");
+
             teste.get(0).toString().replace("{EMAIL=", "").replace("}", "");
             System.out.println(teste);
 
