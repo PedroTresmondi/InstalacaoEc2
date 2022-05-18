@@ -42,6 +42,13 @@
     
     <dependencies>
         <!-- MySQL e MariaDB -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.16</version>
+            <!-- ou versão que já existir na .m2 local -->
+        </dependency>
+
      
         
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
