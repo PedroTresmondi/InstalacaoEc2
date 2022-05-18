@@ -28,7 +28,7 @@ else while true; do
     read -p "Deseja instalar o Java?? " yn
     case $yn in
         [Yy]* ) echo "Instalando o JAVA"; 
-	sdk install java 11.0.12.7.1-amzn; 
+	        sdk install java 11.0.12.7.1-amzn; 
         break;;
         [Nn]* ) exit;;
         * ) echo "Por favor insira yes ou no.";;
@@ -56,3 +56,4 @@ sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 
 echo "Interface Grafica instalada!"
 echo "Conecte-se com o protocolo RDP!"
+fi
