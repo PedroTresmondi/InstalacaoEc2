@@ -24,7 +24,7 @@ public class Connection {
         //this.datasource.setUrl("jdbc:mysql://localhost:3306/omniview?useTimezone=true&serverTimezone=UTC");
         this.datasource.setPassword("2ads#grupo7");
         
-        this.datasource.setDriverClassName("jdbc:mysql://localhost:3306/omniview?autoReconnect=true&useSSL=false");
+        this.datasource.setDriverClassName("jdbc:mysql://0.0.0.0:3306/nomebanco?autoReconnect=true&useSSL=false");
         //usuário utilizado em um container MySQL
         this.datasource.setUsername("root");
         // senha padrao utilizada no container MySQL
