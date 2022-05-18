@@ -27,8 +27,9 @@ then echo “Java já Instalado”
 else while true; do
     read -p "Deseja instalar o Java?? " yn
     case $yn in
-        [Yy]* ) sdk install java 11.0.12.7.1-amzn; 
-        echo "Instalando o JAVA"; break;;
+        [Yy]* ) echo "Instalando o JAVA"; 
+	sdk install java 11.0.12.7.1-amzn; 
+        break;;
         [Nn]* ) exit;;
         * ) echo "Por favor insira yes ou no.";;
     esac
@@ -39,9 +40,9 @@ echo "versao instalada: "
 javac --version
 
 
-echo "Instalando Interface Gráfica"
+echo "Instalando Interface Grafica"
 while true; do
-    read -p "Deseja instalar a interface gráfica na sua EC2? " yn
+    read -p "Deseja instalar a interface grafica na sua EC2? " yn
     case $yn in
         [Yy]* ) sudo apt update && sudo apt upgrade -y";  echo "Atualizando os pacotes do sistema"; break;;
         [Nn]* ) exit;;
