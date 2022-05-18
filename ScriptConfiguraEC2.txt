@@ -17,7 +17,7 @@ $username = $(whoami)
 echo "Adicionando o caminho do SDK ao Curl"
 curl -s "https://get.sdkman.io" | bash
 
-echo"Reiniciando o terminal para finalizar instalação"
+echo "Reiniciando o terminal para finalizar instalação"
 source "/home/$username/.sdkman/bin/sdkman-init.sh"
 
 echo "Checando se o sistema possui java instalado"
@@ -27,7 +27,8 @@ then echo “Java já Instalado”
 else while true; do
     read -p "Deseja instalar o Java?? " yn
     case $yn in
-        [Yy]* ) sdk install java 11.0.12.7.1-amzn; echo "Instalando o JAVA"; break;;
+        [Yy]* ) sdk install java 11.0.12.7.1-amzn; 
+        echo "Instalando o JAVA"; break;;
         [Nn]* ) exit;;
         * ) echo "Por favor insira yes ou no.";;
     esac
@@ -52,5 +53,5 @@ done
 echo "Instalando protocolo RDP"
 sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
 
-echo "Interface Gráfica instalada!"
+echo "Interface Grafica instalada!"
 echo "Conecte-se com o protocolo RDP!"
