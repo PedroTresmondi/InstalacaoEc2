@@ -13,11 +13,13 @@ while true; do
     esac
 done
 fi
-$username = $(whoami)
+
 echo "Adicionando o caminho do SDK ao Curl"
 curl -s "https://get.sdkman.io" | bash
 
+
 echo "Reiniciando o terminal para finalizar instalação"
+$username = $(whoami)
 source "/home/$username/.sdkman/bin/sdkman-init.sh"
 
 echo "Checando se o sistema possui java instalado"
