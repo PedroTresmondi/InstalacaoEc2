@@ -5,7 +5,7 @@ if [ $? = 0 ]
 then echo "Descompactador ZIP já instalado"
 else echo "Descompactador não encontrado "
 while true; do
-    read -p "Do you wish to install this program? " yn
+    read -p "Deseja Instalar esse programa? " yn
     case $yn in
         [Yy]* ) sudo apt install zip; echo "Instalando o ZIP"; break;;
         [Nn]* ) exit;;
@@ -40,8 +40,4 @@ done
 
 
 echo "Instalando protocolo RDP"
-sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y
-
-echo "Interface Grafica instalada!"
-echo "Conecte-se com o protocolo RDP!"
-fi
+sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y;
