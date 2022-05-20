@@ -22,21 +22,7 @@ echo "Reiniciando o terminal para finalizar instalação"
 $username = $(whoami)
 source "/home/$username/.sdkman/bin/sdkman-init.sh"
 
-echo "Checando se o sistema possui java instalado"
-which java 
-if [ $? = 0 ]
-then echo “Java já Instalado”
-else while true; do
-    read -p "Deseja instalar o Java?? " yn
-    case $yn in
-        [Yy]* ) echo "Instalando o JAVA"; 
-	        sdk install java 11.0.12.7.1-amzn; 
-        break;;
-        [Nn]* ) exit;;
-        * ) echo "Por favor insira yes ou no.";;
-    esac
-done
-fi
+sdk install java 11.0.12.7.1-amzn; 
 
 echo "versao instalada: "
 javac --version
