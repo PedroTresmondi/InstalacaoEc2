@@ -1,4 +1,5 @@
 #!/bin/bash
+usuario=$(whoami)
 
 which zip 
 if [ $? = 0 ]
@@ -19,8 +20,8 @@ curl -s "https://get.sdkman.io" | bash
 
 
 echo "Reiniciando o terminal para finalizar instalação"
-$username =$(whoami)
-source "/home/$username/.sdkman/bin/sdkman-init.sh"
+
+source "/home/$usuario/.sdkman/bin/sdkman-init.sh"
 
 sdk install java 11.0.12.7.1-amzn; 
 

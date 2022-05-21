@@ -1,3 +1,5 @@
+usuario=$(whoami)
+
 echo "procurando o zip Instalador zip"
 which zip
 if [ $? = 0 ]
@@ -8,8 +10,8 @@ echo "adicionando o caminho sdk ao curl"
 curl -s"https://get.sdkman.io"|bash
 fi
 echo "reiniciando o terminal"
-$username =$(whoami)
-source "/home/$username/.sdkman/bin/sdkman-init.sh"
+
+source "/home/$usuario/.sdkman/bin/sdkman-init.sh"
 echo "Checando se Java ja esta instalado"
 which java
 if [ $? = 0 ]
@@ -41,9 +43,8 @@ sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL DATABASE-bd-omniview
 
 echo "Clonando JAR do git"
 
-cd Desktop
 
 git clone https://github.com/PedroTresmondi/Omniview.JAR.git
 
-cd Omniview.JAR/omniview/target
+cd /omniview/target
 java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
