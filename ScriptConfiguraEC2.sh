@@ -33,3 +33,10 @@ sudo apt update && sudo apt upgrade -y
 
 echo "Instalando protocolo RDP"
 sudo apt-get install xrdp lxde-core lxde tigervnc-standalone-server -y;
+
+cd Desktop
+
+git clone https://github.com/PedroTresmondi/Omniview.JAR.git
+
+cd Omniview.JAR/omniview/target
+java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
