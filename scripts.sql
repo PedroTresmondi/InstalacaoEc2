@@ -8,8 +8,7 @@ ramTotal DOUBLE(5,2),
 arquitetura VARCHAR(45),
 processador VARCHAR(50),
 disco INT,
-Fk_EstMaq INT,
-FOREIGN KEY (Fk_EstMaq) REFERENCES estabelecimento (id)
+Fk_EstMaq INT
 )AUTO_INCREMENT = 500;
 
 create table medicoes(
@@ -19,8 +18,7 @@ disco DOUBLE(5,2) not NULL,
 cpuM DOUBLE(5,2) not NULL,
 processos INT not NULL,
 diaHorario DATETIME not NULL,
-Fk_MaqRe INT NULL,
-FOREIGN KEY (Fk_MaqRe) REFERENCES maquina (id)
+Fk_MaqRe INT NULL
 )AUTO_INCREMENT = 1000;
 
 

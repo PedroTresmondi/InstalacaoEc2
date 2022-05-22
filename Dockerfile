@@ -1,7 +1,7 @@
 FROM mysql:8.0.16
 
-ENV MYSQL DATABASE omniviewbd
-ENV MYSQL_ROOT PASSWORD root
+ENV MYSQL_DATABASE omniviewbd
+ENV MYSQL_ROOT_PASSWORD root
 
-COPY ./scripts//docker-entrypoint-initdb.d/
+COPY ./scripts.sql/ /docker-entrypoint-initdb.d/
 EXPOSE 3306
