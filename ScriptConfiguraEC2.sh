@@ -6,13 +6,15 @@ if [ $? = 0 ]
 then echo "Já possui zip instalado"
 else echo "Instalando zip"
 sudo apt install zip
+
 echo "adicionando o caminho sdk ao curl"
-curl -s"https://get.sdkman.io"|bash
+curl -s "https://get.sdkman.io" | bash
 fi
 echo "reiniciando o terminal"
 
 source "/home/$usuario/.sdkman/bin/sdkman-init.sh"
 echo "Checando se Java ja esta instalado"
+
 which java
 if [ $? = 0 ]
 then echo "Já possui java instalado"
@@ -23,7 +25,7 @@ echo "versão do instalada: "
 java -version
 echo "atualizando os pacotes"
 sudo apt update && sudo apt upgrade.
-echo "procurandoodocker"
+echo "procurando o docker"
 which docker
 if [ $? = 0 ]
 then echo "Já possui docker instalado"
