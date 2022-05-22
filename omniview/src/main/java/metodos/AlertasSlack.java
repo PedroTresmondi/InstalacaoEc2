@@ -27,11 +27,13 @@ public class AlertasSlack {
         do {
             try {
                 if (ramEmUso >= alertaConsumoTotalRam) {
-                    tipoAlerta = "Alerta de Ram - Grave";
-                    IntegracaoSlack.getEnviaAlertas(tipoAlerta,alertaGrave, hostName, tipoComponente, ramLivre);
+                    tipoAlerta = "Alerta de Ram - Ram acima de 90%";
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta,alertaGrave, hostName, tipoComponente, ramLivre);
+                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta,alertaGrave, hostName, tipoComponente, ramLivre);
                 } else if (ramEmUso >= alertaDeRamGrave ) {
-                    tipoAlerta = "Alerta de Ram - Médio";
-                    IntegracaoSlack.getEnviaAlertas(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
+                    tipoAlerta = "Alerta de Ram - 50% de Ram utilizada";
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
+                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
                 } 
             } catch (Exception e) {
                 System.out.println("erro");
@@ -51,11 +53,13 @@ public class AlertasSlack {
             try {
                 if (discoEmUso >= alertaDeDisco) {
                     tipoAlerta = "Alerta de Disco - 50% de disco utilizado";
-                    IntegracaoSlack.getEnviaAlertas(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
                 }
                 else if (discoEmUso >=  alertaDeDiscoGrave) {
                     tipoAlerta = "Alerta de Disco - Disco acima de 90%";
-                    IntegracaoSlack.getEnviaAlertas(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                     IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
                 }
             } catch (Exception e) {
                 System.out.println("erro");

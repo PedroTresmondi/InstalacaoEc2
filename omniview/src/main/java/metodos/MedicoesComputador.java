@@ -62,20 +62,12 @@ public class MedicoesComputador {
             
             @Override
             public void run() {
-                //SQL SERVER
                 con.update("Insert into medicoes"
                         + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,GETDATE(),?)",
                          getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes");
-                //MYSQL
-                con.update("Insert into medicoes"
-                        + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
-                        + "values (?, ?, ?, ?,Now(),?)",
-                         getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
-                System.out.println("Inserindo dados na tabela medicoes MySQL");
             }
         }, delay, interval);
     }

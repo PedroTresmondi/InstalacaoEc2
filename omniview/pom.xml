@@ -23,7 +23,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.mycompany.omniview.OmniviewApp</mainClass>
+                            <mainClass>com.mycompany.omniview.monitoracao.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -42,13 +42,6 @@
     
     <dependencies>
         <!-- MySQL e MariaDB -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.16</version>
-            <!-- ou versão que já existir na .m2 local -->
-        </dependency>
-
      
         
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
@@ -115,5 +108,5 @@
         </dependency>
 
     </dependencies>
-    <name>omniviewApp</name>
+    <name>omniview-monitoracao</name>
 </project>
