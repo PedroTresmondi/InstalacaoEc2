@@ -101,7 +101,7 @@ public class AutenticarLogin {
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
-            log.sucesso();
+            log.gerarLog();
             
         }
 

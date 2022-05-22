@@ -12,29 +12,23 @@ import user.User;
 
 public class Log {
 
-    public void sucesso() {
-        metodos.AutenticarLogin login = new AutenticarLogin();
+    public void gerarLog() {
         metodos.RecursosComputador recMaq = new RecursosComputador();
-        Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
-
-        String maquina = recMaq.getHostname();
-        String user = login.getEmail();
-
+        
+       
         File arquvoLog = new File("logAplicacao.txt");
         try {
             if (arquvoLog.exists() == false) {
                 System.out.println("Criando novo Arquivo log");
                 arquvoLog.createNewFile();
             }
+            Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
             PrintWriter out = new PrintWriter(arquvoLog);
-            out.append("Maquina " + maquina + " Registrada em: " + dataDeHoje + "\n");
-            out.append(user + "logado em " + dataDeHoje);
-            out.close();
-
+            out.append("Maquina " + recMaq.getHostname() + " Registrada em: " + dataDeHoje.toString() + "\n");
+            out.append("login sucedido ");
             out.close();
         } catch (IOException e) {
             System.out.println("Nao foi possivel criar o log!");
         }
     }
-
 }

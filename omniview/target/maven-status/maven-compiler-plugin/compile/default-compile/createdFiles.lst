@@ -4,10 +4,8 @@ metodos\AlertasSlack.class
 metodos\ConsultaBanco.class
 metodos\IntegracaoSlack.class
 metodos\RecursosComputador.class
-metodos\Log.class
 javaswing\TelaLogin$3.class
 javaswing\TelaLogin.class
-com\mycompany\omniview\ConnectionMysql.class
 com\mycompany\omniview\OmniviewApp.class
 com\mycompany\omniview\Connection.class
 javaswing\TelaLogin$1.class
