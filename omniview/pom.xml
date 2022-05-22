@@ -23,7 +23,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.mycompany.omniview.monitoracao.App</mainClass>
+                            <mainClass>com.mycompany.omniview.OmniviewApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
