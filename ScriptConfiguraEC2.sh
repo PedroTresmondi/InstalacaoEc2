@@ -25,7 +25,7 @@ echo "atualizando os pacotes"
 sudo apt update && sudo apt upgrade.
 echo "procurandoodocker"
 which docker
-if[ $? = 0 ]
+if [ $? = 0 ]
 then echo "Já possui docker instalado"
 else echo "Instalando docker"
 sudo apt install docker.io
@@ -38,13 +38,12 @@ echo "baixando a imagem do mysql"
 sudo docker pull mysql:8.0.16
 echo "criando uma imagem customizada do mysql com o banco de dados"
 sudo docker build -t omniviewBD_img:1.0.
-echo "executandoocontainer com mysql"
-sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL DATABASE-bd-omniview" -e "MYSQL_ROOT PASSWORD-root"omniview_img:1.0
+echo "executando o container com mysql"
+sudo docker run -d -p 3306:3306 --name omniviewBD -e "MYSQL_DATABASE=bd-omniview" -e "MYSQL_ROOT_PASSWORD=root" omniview_img:1.0
+echo "executando o container com mysql"
 
-echo "Clonando JAR do git"
+sudo exec -it omniviewBD bash
 
-
-git clone https://github.com/PedroTresmondi/Omniview.JAR.git
-
-cd /omniview/target
-java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
+echo"mostrando o status do container"
+sudo docker stats omniviewBD
+echo"instalação completa"
