@@ -6,9 +6,7 @@ echo " ██    ██ ██ ████ ██ ██ ██  ██ ██ 
 echo " ██    ██ ██  ██  ██ ██  ██ ██ ██  ██  ██  ██ ██      ██ ███ ██ "
 echo "  ██████  ██      ██ ██   ████ ██   ████   ██ ███████  ███ ███  "
 
-
-
-                                                                            
+                                                                          
 usuario=$(whoami)
 
 echo "procurando o zip Instalador zip"
