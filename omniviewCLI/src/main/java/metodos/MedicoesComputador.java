@@ -79,7 +79,7 @@ public class MedicoesComputador {
 //                
 
                  conSQL.update("Insert into medicoes"
-                        + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
+                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,SYSDATETIME(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
