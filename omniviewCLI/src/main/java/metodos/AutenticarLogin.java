@@ -90,7 +90,6 @@ public class AutenticarLogin {
 
         do {
             LoginCLI cli = new LoginCLI();
-           
 
             List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                     + "WHERE EMAIL =? and SENHA =?",
@@ -101,16 +100,19 @@ public class AutenticarLogin {
             } else {
                 System.out.println("Usuario autenticado");
                 setUserAutenticado(true);
-                registrarMaq.escolhaMaquina();
+
                 regMaq.getHostname();
                 this.email = emailUsuarioBanco;
-                //JOptionPane.showMessageDialog(null, "Usuario Autenticado");
-                cnstBanco.getFKEst(email);
-                //cnstBanco.getFKEst(emailFK.getEmail());
-                regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-                regMaq.inserirMaquinasSQL(cnstBanco.getFKEst(email));
-                medMaq.inserirMedicao();
+
                 FkEstt = cnstBanco.getFKEst(email);
+               
+                cnstBanco.getFKEst(email);
+                regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
+                //regMaq.inserirMaquinasSQL(cnstBanco.getFKEst(email));
+                 registrarMaq.escolhaMaquina();
+                //cnstBanco.getFKEst(emailFK.getEmail());
+
+                medMaq.inserirMedicao();
                 log.gerarLog();
 
             }

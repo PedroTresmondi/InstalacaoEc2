@@ -17,7 +17,7 @@ public class ConsultaBanco {
     AutenticarLogin al = new AutenticarLogin();
 
     metodos.RecursosComputador reqMaq = new RecursosComputador();
-    public String idMaqBancoString = getIDMaquina();
+
 
     //Consulta FKEstUser da tabela Usuario
     public Integer getFKEst(String email) {
