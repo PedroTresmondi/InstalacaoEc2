@@ -44,6 +44,8 @@ echo "executando mysql"
 sudo docker run -d -p 3306:3306 --name omniview omniview_img:1.0
 
 
+java -jar omniviewCLI/target/omniview omniview-1.0-SNAPSHOT-jar-with-dependencies.jar
+
 
 
 
