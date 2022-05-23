@@ -6,6 +6,7 @@ package metodos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
+import com.mycompany.omniview.ConnectionMysql;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +26,8 @@ public class MedicoesComputador {
 
     Looca looca = new Looca();
     Connection config = new Connection();
+    ConnectionMysql configMySQL = new ConnectionMysql();
+    JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     RecursosComputador rec = new RecursosComputador();
     metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
@@ -63,7 +66,6 @@ public class MedicoesComputador {
 
         timer1.scheduleAtFixedRate(new TimerTask() {
             metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
-            
 
             @Override
             public void run() {
@@ -73,18 +75,17 @@ public class MedicoesComputador {
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes SQLServer");
-                
+
 //                
-/*
-                 con.update("Insert into medicoes"
+
+                 conSQL.update("Insert into medicoes"
                         + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,SYSDATETIME(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes SQLS");
                 
-           */
-
+                
                 slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
                 slack.alertaDisco(getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             }

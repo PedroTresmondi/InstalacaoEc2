@@ -10,6 +10,10 @@ public class ConnectionMysql {
 
     private BasicDataSource dataSource;
 
+    public BasicDataSource getDataSourceSQL() {
+        return dataSource;
+    }
+
     public ConnectionMysql() {
         try {
             this.dataSource = new BasicDataSource();
@@ -17,7 +21,7 @@ public class ConnectionMysql {
             this.dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
             //this.datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //this.dataSource.setUrl("jdbarh2:file:./meu_banco");
-            this.dataSource.setUrl("jdbc:mysql://localhost:3306/omniview?useTimezone=true&serverTimezone=UTC");
+            this.dataSource.setUrl("jdbc:mysql://localhost:3306/omniviewbd?useTimezone=true&serverTimezone=UTC");
          
             // usuário padrao2
             //this.dataSource.setUsername("sa");
