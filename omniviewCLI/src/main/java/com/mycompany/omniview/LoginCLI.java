@@ -9,9 +9,15 @@ public class LoginCLI {
     public static void main(String[] args) {
         metodos.AutenticarLogin login = new AutenticarLogin();
         Scanner leitor = new Scanner(System.in);
-        System.out.println("=".repeat(71)
-                + "\nOMNIVIEW\n"
-                + "=".repeat(71));
+        System.out.println("            
+ System.out.println("$$$$$$\\                          $$\\            $$\\  ");                       
+$$  __$$\                         \__|           \__|                        
+$$ /  $$ |$$$$$$\$$$$\  $$$$$$$\  $$\ $$\    $$\ $$\  $$$$$$\  $$\  $$\  $$\ 
+$$ |  $$ |$$  _$$  _$$\ $$  __$$\ $$ |\$$\  $$  |$$ |$$  __$$\ $$ | $$ | $$ |
+$$ |  $$ |$$ / $$ / $$ |$$ |  $$ |$$ | \$$\$$  / $$ |$$$$$$$$ |$$ | $$ | $$ |
+$$ |  $$ |$$ | $$ | $$ |$$ |  $$ |$$ |  \$$$  /  $$ |$$   ____|$$ | $$ | $$ |
+ $$$$$$  |$$ | $$ | $$ |$$ |  $$ |$$ |   \$  /   $$ |\$$$$$$$\ \$$$$$\$$$$  |
+ \______/ \__| \__| \__|\__|  \__|\__|    \_/    \__| \_______| \_____\____/ ");
         System.out.println("Digite o email cadastrado");
         String email = leitor.nextLine();
         System.out.println("Digite a senha cadastrada");
