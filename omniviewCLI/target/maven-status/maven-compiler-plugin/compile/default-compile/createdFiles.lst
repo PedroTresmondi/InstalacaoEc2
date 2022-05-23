@@ -1,0 +1,9 @@
+metodos\AutenticarLogin.class
+metodos\AlertasSlack.class
+metodos\ConsultaBanco.class
+metodos\IntegracaoSlack.class
+metodos\RecursosComputador.class
+com\mycompany\omniview\Connection.class
+user\User.class
+metodos\MedicoesComputador$1.class
+metodos\MedicoesComputador.class
