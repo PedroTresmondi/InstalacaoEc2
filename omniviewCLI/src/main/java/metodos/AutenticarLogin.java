@@ -1,6 +1,7 @@
 package metodos;
 
 import com.mycompany.omniview.Connection;
+import com.mycompany.omniview.LoginCLI;
 import java.util.List;
 import java.util.Scanner;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -88,10 +89,8 @@ public class AutenticarLogin {
         RegistraMaquinaCLI registrarMaq = new RegistraMaquinaCLI();
 
         do {
-            System.out.println("Digite o email cadastrado");
-            email = leitor.nextLine();
-            System.out.println("Digite a senha cadastrada");
-            senha = leitor.nextLine();
+            LoginCLI cli = new LoginCLI();
+           
 
             List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                     + "WHERE EMAIL =? and SENHA =?",
