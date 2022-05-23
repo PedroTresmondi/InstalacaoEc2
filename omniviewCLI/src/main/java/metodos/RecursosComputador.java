@@ -93,12 +93,9 @@ public class RecursosComputador {
                 getArquiteturaSis(),
                 getProcessador(),
                 getDiscoTotal(), estUsuario);
-        System.out.println("inserindo dados na máquina: " + this.hostName);
-    }
-
-  
-    public void inserirMaquinasSQL(Integer estUsuario) {
-        conSQL.update("INSERT INTO MAQUINA(hostName,"
+            System.out.println("inserindo dados na máquina pelo SQLSERVER: " + this.hostName);
+            
+            conSQL.update("INSERT INTO MAQUINA(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
                 + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
@@ -107,6 +104,10 @@ public class RecursosComputador {
                 getProcessador(),
                 getDiscoTotal(), estUsuario);
         System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
+
     }
+
+  
+ 
     
 }
