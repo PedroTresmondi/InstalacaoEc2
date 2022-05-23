@@ -80,7 +80,7 @@ public class MedicoesComputador {
 
                  conSQL.update("Insert into medicoes"
                         + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
-                        + "values (?, ?, ?, ?,SYSDATETIME(),?)",
+                        + "values (?, ?, ?, ?,NOW(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes SQLS");
