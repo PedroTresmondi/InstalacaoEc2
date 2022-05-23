@@ -108,5 +108,5 @@
         </dependency>
 
     </dependencies>
-    <name>omniview CLI</name>
+    <name>omniviewCLI</name>
 </project>
