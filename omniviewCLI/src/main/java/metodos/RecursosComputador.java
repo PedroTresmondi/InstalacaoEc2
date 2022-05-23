@@ -85,7 +85,7 @@ public class RecursosComputador {
     }
 
     public void inserirMaquinas(Integer estUsuario) {
-        con.update("INSERT INTO MAQUINA(hostName,"
+        con.update("INSERT INTO [dbo].[maquina](hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
                 + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
@@ -95,7 +95,7 @@ public class RecursosComputador {
                 getDiscoTotal(), estUsuario);
             System.out.println("inserindo dados na máquina pelo SQLSERVER: " + this.hostName);
             
-            conSQL.update("INSERT INTO MAQUINA(hostName,"
+            conSQL.update("INSERT INTO omniviewbd.maquina(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
                 + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
