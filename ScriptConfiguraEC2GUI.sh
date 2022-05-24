@@ -1,13 +1,15 @@
 #!/bin/bash
 
+usuario=$(whoami)
+echo "Adicionando" $usuario echo " no grupo de sudoers "
+sudo adduser $usuario sudo
+
 echo "  ██████  ███    ███ ███    ██ ██ ██    ██ ██ ███████ ██     ██ "
 echo " ██    ██ ████  ████ ████   ██ ██ ██    ██ ██ ██      ██     ██ "
 echo " ██    ██ ██ ████ ██ ██ ██  ██ ██ ██    ██ ██ █████   ██  █  ██ "
 echo " ██    ██ ██  ██  ██ ██  ██ ██ ██  ██  ██  ██ ██      ██ ███ ██ "
 echo "  ██████  ██      ██ ██   ████ ██   ████   ██ ███████  ███ ███  "
 
-
-usuario=$(whoami)
 
 which zip 
 if [ $? = 0 ]
@@ -47,9 +49,9 @@ cd Desktop
 git clone https://github.com/PedroTresmondi/Omniview.JAR.git
 
 cd Omniview.JAR/
-cd omniview/
+cd omniviewGUI/
 cd target/
-java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies
+java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 
 echo " ███████ ██ ███    ███     ██████   █████      ██ ███    ██ ███████ ████████  █████  ██       █████   ██████  █████   ██████   "

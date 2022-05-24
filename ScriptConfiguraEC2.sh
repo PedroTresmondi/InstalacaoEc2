@@ -1,4 +1,8 @@
 #!/bin/bash
+usuario=$(whoami)
+echo "Adicionando" $usuario echo " no grupo de sudoers "
+sudo adduser $usuario sudo
+
 
 echo "Atualizando pacotes"
 sudo apt update && sudo apt upgrade -y
@@ -9,7 +13,7 @@ echo " ██    ██ ██ ████ ██ ██ ██  ██ ██ 
 echo " ██    ██ ██  ██  ██ ██  ██ ██ ██  ██  ██  ██ ██      ██ ███ ██ "
 echo "  ██████  ██      ██ ██   ████ ██   ████   ██ ███████  ███ ███  "
 
-usuario=$(whoami)
+
 
 echo "procurando o zip Instalador zip"
 which zip
