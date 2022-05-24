@@ -51,15 +51,13 @@ sudo docker build -t omniview_img:1.0 .
 echo "executando mysql"
 sudo docker run -d -p 3306:3306 --name omniview omniview_img:1.0
 
-
 echo " ███████ ██ ███    ███     ██████   █████      ██ ███    ██ ███████ ████████  █████  ██       █████   ██████  █████   ██████   "
 echo " ██      ██ ████  ████     ██   ██ ██   ██     ██ ████   ██ ██         ██    ██   ██ ██      ██   ██ ██      ██   ██ ██    ██  "
 echo " █████   ██ ██ ████ ██     ██   ██ ███████     ██ ██ ██  ██ ███████    ██    ███████ ██      ███████ ██      ███████ ██    ██  "
 echo " ██      ██ ██  ██  ██     ██   ██ ██   ██     ██ ██  ██ ██      ██    ██    ██   ██ ██      ██   ██ ██      ██   ██ ██    ██  "
 echo " ██      ██ ██      ██     ██████  ██   ██     ██ ██   ████ ███████    ██    ██   ██ ███████ ██   ██  ██████ ██   ██  ██████   "
                                                                                                                              
-                                                                                                                             
+cd omniviewCLI/
+cd target/
+java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies.jar
 
-
-
-java -jar omniviewCLI/target omniview-1.0-SNAPSHOT-jar-with-dependencies.jar
