@@ -1,4 +1,12 @@
 #!/bin/bash
+
+echo "  ██████  ███    ███ ███    ██ ██ ██    ██ ██ ███████ ██     ██ "
+echo " ██    ██ ████  ████ ████   ██ ██ ██    ██ ██ ██      ██     ██ "
+echo " ██    ██ ██ ████ ██ ██ ██  ██ ██ ██    ██ ██ █████   ██  █  ██ "
+echo " ██    ██ ██  ██  ██ ██  ██ ██ ██  ██  ██  ██ ██      ██ ███ ██ "
+echo "  ██████  ██      ██ ██   ████ ██   ████   ██ ███████  ███ ███  "
+
+
 usuario=$(whoami)
 
 which zip 
@@ -19,9 +27,8 @@ echo "Adicionando o caminho do SDK ao Curl"
 curl -s "https://get.sdkman.io" | bash
 
 
-echo "Reiniciando o terminal para finalizar instalação"
-
-source "/home/$usuario/.sdkman/bin/sdkman-init.sh"
+echo "reiniciando terminal"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 sdk install java 11.0.12.7.1-amzn; 
 
