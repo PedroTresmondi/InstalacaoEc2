@@ -29,7 +29,7 @@ echo "versao instalada: "
 javac --version
 
 
-echo "Instalando Interface Grafica"
+echo "Atualizando pacotes"
 sudo apt update && sudo apt upgrade -y
 
 echo "Instalando protocolo RDP"
