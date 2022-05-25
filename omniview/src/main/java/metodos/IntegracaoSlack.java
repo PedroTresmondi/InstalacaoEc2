@@ -14,23 +14,22 @@ public class IntegracaoSlack {
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     metodos.RecursosComputador reqMaq = new RecursosComputador();
 
-    public Integer consultaEmpresa() {
+    public String verificarEmpresa() {
+
         List IdMaqBanco = con.queryForList("select Fk_EstMaq from Maquina where hostName = ? ORDER BY ID DESC",
                 reqMaq.getHostname());
-        String fkVar = String.valueOf(IdMaqBanco.get(0)).replace("{Fk_EstMaq=", "").replace("}", "");
-        System.out.println(fkVar);
-        Integer fkVarInt = Integer.parseInt(fkVar);
-        return fkVarInt;
-    }
+        String fkVar = String.valueOf(IdMaqBanco.get(0)).replace("Fk_EstMaq=", "");
 
-    public void enviaAlerta(Integer fkVarInt) {
-        if (fkVarInt == 1) {
-            System.out.println("caiu no 1");
+        return fkVar;
 
-        } else if (fkVarInt == 2) {
-            System.out.println("caiu no 2");
-        }
-
+//        switch (fkEst) {
+//                    case 1:
+//                      getEnviaAlertas(tipoAlerta, corAlerta, hostName, tipoMedicao, Double.NaN);
+//                        break;
+//                    default:                       getEnviaAlertasc(tipoAlerta, corAlerta, hostName, tipoMedicao, Double.NaN);
+//                        throw new AssertionError();
+//                }
+//        return fkEst;
     }
 
     public static void getEnviaAlertasCmMikeys(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
@@ -61,7 +60,6 @@ public class IntegracaoSlack {
         String slcT12 = "3467541436532-";
         String slcT13 = "3524285250806-";
         String slcT14 = "kKCbdB97mrikoln6TSPuv5Dd";
-        
         String msgAlerta = String.format("%s %s\n"
                 + "Máquina: %s\n"
                 + "%s Disponivel: %.2f GB",

@@ -5,10 +5,8 @@
 package metodos;
 
 import com.mycompany.omniview.Connection;
-import com.mycompany.omniview.ConnectionMysql;
-
 import java.util.List;
-
+import javax.swing.JOptionPane;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class ConsultaBanco {
@@ -16,31 +14,18 @@ public class ConsultaBanco {
     Connection config = new Connection();
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     AutenticarLogin al = new AutenticarLogin();
-
-    ConnectionMysql configMySQL = new ConnectionMysql();
-    JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
-    
     metodos.RecursosComputador reqMaq = new RecursosComputador();
-    public String idMaqBancoStringAzure = getIDMaquinaAzure();
-    //public String idMaqBancoSQLString = getIDMaquinaSQL();
 
-    //Consulta FKEstUser da tabela Usuario AZURE
+    //Consulta FKEstUser da tabela Usuario
     public Integer getFKEst(String email) {
         return con.queryForObject("SELECT FK_EstUser FROM USUARIO WHERE email = ? ",
                 Integer.class, email);
     }
 
-    public String getIDMaquinaAzure() {
-        List IdMaqBancoAzure = con.queryForList("select ID from Maquina WHERE hostName = ? ORDER BY id DESC",
-                reqMaq.getHostname());
-        return IdMaqBancoAzure.get(0).toString().replace("{ID=", "").replace("}", "");
+    public String getIDMaquina() {
+        List IdMaqBanco = con.queryForList("select ID from Maquina WHERE hostName = ? ORDER BY id DESC",
+        reqMaq.getHostname());
+        return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
     }
-/*
-    //Consulta IDMAQUINA da tabela Usuario SQL DOCKER
-    public String getIDMaquinaSQL() {
-        List IdMaqBancoSQL = conSQL.queryForList("select ID from maquina WHERE hostName = ? ORDER BY id DESC",
-                reqMaq.getHostname());
-        return IdMaqBancoSQL.get(0).toString().replace("{ID=", "").replace("}", "");
-    }
-*/
+
 }

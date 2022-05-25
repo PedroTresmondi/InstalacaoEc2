@@ -6,7 +6,6 @@ package metodos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
-import com.mycompany.omniview.ConnectionMysql;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
@@ -27,12 +26,10 @@ public class RecursosComputador {
     public RecursosComputador() {
     }
 
-   AutenticarLogin autenticarLogin = new AutenticarLogin();
+    AutenticarLogin autenticarLogin = new AutenticarLogin();
     Looca looca = new Looca();
     Connection config = new Connection();
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
-    ConnectionMysql configMySQL = new ConnectionMysql();
-    JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
 
     public String getProcessador() {
         processador = looca.getProcessador().getNome();
@@ -84,8 +81,8 @@ public class RecursosComputador {
         return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
     }
 
-   public void inserirMaquinas(Integer estUsuario) {
-        con.update("INSERT INTO [dbo].[maquina](hostName,"
+    public void inserirMaquinas(Integer estUsuario) {
+        con.update("INSERT INTO MAQUINA(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq) VALUES "
                 + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
@@ -93,18 +90,7 @@ public class RecursosComputador {
                 getArquiteturaSis(),
                 getProcessador(),
                 getDiscoTotal(), estUsuario);
-            System.out.println("inserindo dados na máquina pelo SQLSERVER: " + this.hostName);
-            
-            conSQL.update("INSERT INTO omniviewbd.maquina(hostName,"
-                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
-                + "processador,disco,Fk_EstMaq) VALUES "
-                + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
-                getMemoriaRamTotal(),
-                getArquiteturaSis(),
-                getProcessador(),
-                getDiscoTotal(), estUsuario);
-        System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
-
+        System.out.println("inserindo dados na máquina: " + this.hostName);
     }
 
 }

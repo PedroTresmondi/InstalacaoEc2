@@ -1,7 +1,6 @@
 package metodos;
 
 import com.mycompany.omniview.Connection;
-import com.mycompany.omniview.ConnectionMysql;
 import java.util.List;
 import javaswing.TelaLogin;
 
@@ -17,9 +16,6 @@ public class AutenticarLogin {
     private String id;
     public Integer FkEstt;
     private boolean userAutenticado = false;
-
-    ConnectionMysql configMySQL = new ConnectionMysql();
-    JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
 
     public boolean isUserAutenticado() {
         return userAutenticado;
@@ -79,8 +75,10 @@ public class AutenticarLogin {
         metodos.RecursosComputador regMaq = new RecursosComputador();
         metodos.MedicoesComputador medMaq = new MedicoesComputador();
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
-
+        metodos.AutenticarLogin emailFK = new AutenticarLogin();
+        metodos.AlertasSlack slack = new AlertasSlack();
         metodos.Log log = new Log();
+        TelaLogin teste = new TelaLogin();
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
@@ -94,15 +92,17 @@ public class AutenticarLogin {
             setUserAutenticado(true);
             regMaq.getHostname();
             this.email = emailUsuarioBanco;
-            cnstBanco.getFKEst(email);
             JOptionPane.showMessageDialog(null, "Usuario Autenticado");
-
+            cnstBanco.getFKEst(email);
             //cnstBanco.getFKEst(emailFK.getEmail());
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
+            
             medMaq.inserirMedicao();
+            slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
+            slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
             log.gerarLog();
-
+            
         }
 
     }
@@ -116,25 +116,13 @@ public class AutenticarLogin {
         if (userAutenticado == true) {
             if (checkCaixa == true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
-
-                con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
-                List updateMaqAzure = con.queryForList("SELECT * FROM "
-                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquinaAzure());
-                updateMaqAzure.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-                System.out.println(updateMaqAzure);
-                System.out.println("Caixa cadastrado na AZURE ID: "
-                        + cnstBanco.getIDMaquinaAzure());
-
-                /*
-                conSQL.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
-                List updateMaqSQL = con.queryForList("SELECT * FROM "
-                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquinaSQL());
-                updateMaqSQL.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-                System.out.println(updateMaqSQL);
-                System.out.println("Caixa cadastrado no MYSQL ID: "
-                        + cnstBanco.getIDMaquinaSQL());
-                */
-
+                con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+                List updateMaq = con.queryForList("SELECT * FROM "
+                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+                updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+                System.out.println(updateMaq);
+                System.out.println("Caixa cadastrado no ID: "
+                        + cnstBanco.getIDMaquina());
             } else {
                 System.out.println("caixa nao cadastrado");
             }
@@ -151,24 +139,13 @@ public class AutenticarLogin {
         if (userAutenticado == true) {
             if (checkTotem = true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-                con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
-                List updateMaqAzure = con.queryForList("SELECT * FROM "
-                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
-                updateMaqAzure.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-                System.out.println(updateMaqAzure);
-                System.out.println("Totem cadastrado na AZURE ID: "
-                        + cnstBanco.getIDMaquinaAzure());
-                System.out.println(updateMaqAzure);
-                /*
-
-                conSQL.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
-                List updateMaqSQL = con.queryForList("SELECT * FROM "
-                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquinaSQL());
-                updateMaqSQL.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-                System.out.println("Totem cadastrado no SQL ID: "
-                        + cnstBanco.getIDMaquinaSQL());
-                System.out.println(updateMaqSQL);
-                 */
+                con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
+                List updateMaq = con.queryForList("SELECT * FROM "
+                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
+                updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+                System.out.println(updateMaq);
+                System.out.println("Totem cadastrado no ID: "
+                        + cnstBanco.getIDMaquina());
 
             } else {
                 System.out.println("totem nao cadastrado");

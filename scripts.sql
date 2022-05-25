@@ -8,7 +8,8 @@ ramTotal DOUBLE(5,2),
 arquitetura VARCHAR(45),
 processador VARCHAR(50),
 disco INT,
-Fk_EstMaq INT
+Fk_EstMaq INT,
+reiniciar INT
 )AUTO_INCREMENT = 500;
 
 create table medicoes(
