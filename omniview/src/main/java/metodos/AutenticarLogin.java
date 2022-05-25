@@ -123,8 +123,9 @@ public class AutenticarLogin {
                 updateMaqAzure.get(0).toString().replace("{EMAIL=", "").replace("}", "");
                 System.out.println(updateMaqAzure);
                 System.out.println("Caixa cadastrado na AZURE ID: "
-                        + cnstBanco.getIDMaquinaSQL());
+                        + cnstBanco.getIDMaquinaAzure());
 
+                /*
                 conSQL.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqSQL = con.queryForList("SELECT * FROM "
                         + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquinaSQL());
@@ -132,6 +133,7 @@ public class AutenticarLogin {
                 System.out.println(updateMaqSQL);
                 System.out.println("Caixa cadastrado no MYSQL ID: "
                         + cnstBanco.getIDMaquinaSQL());
+                */
 
             } else {
                 System.out.println("caixa nao cadastrado");
@@ -157,6 +159,7 @@ public class AutenticarLogin {
                 System.out.println("Totem cadastrado na AZURE ID: "
                         + cnstBanco.getIDMaquinaAzure());
                 System.out.println(updateMaqAzure);
+                /*
 
                 conSQL.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqSQL = con.queryForList("SELECT * FROM "
@@ -165,6 +168,7 @@ public class AutenticarLogin {
                 System.out.println("Totem cadastrado no SQL ID: "
                         + cnstBanco.getIDMaquinaSQL());
                 System.out.println(updateMaqSQL);
+                 */
 
             } else {
                 System.out.println("totem nao cadastrado");

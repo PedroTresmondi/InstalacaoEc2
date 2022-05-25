@@ -22,7 +22,7 @@ public class ConsultaBanco {
     
     metodos.RecursosComputador reqMaq = new RecursosComputador();
     public String idMaqBancoStringAzure = getIDMaquinaAzure();
-    public String idMaqBancoSQLString = getIDMaquinaSQL();
+    //public String idMaqBancoSQLString = getIDMaquinaSQL();
 
     //Consulta FKEstUser da tabela Usuario AZURE
     public Integer getFKEst(String email) {
@@ -35,12 +35,12 @@ public class ConsultaBanco {
                 reqMaq.getHostname());
         return IdMaqBancoAzure.get(0).toString().replace("{ID=", "").replace("}", "");
     }
-
+/*
     //Consulta IDMAQUINA da tabela Usuario SQL DOCKER
     public String getIDMaquinaSQL() {
         List IdMaqBancoSQL = conSQL.queryForList("select ID from maquina WHERE hostName = ? ORDER BY id DESC",
                 reqMaq.getHostname());
         return IdMaqBancoSQL.get(0).toString().replace("{ID=", "").replace("}", "");
     }
-
+*/
 }

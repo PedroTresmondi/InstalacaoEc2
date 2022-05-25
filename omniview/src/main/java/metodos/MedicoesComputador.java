@@ -84,7 +84,7 @@ public class MedicoesComputador {
                         + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,NOW(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquinaSQL());
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquinaAzure());
                 System.out.println("Inserindo dados na tabela medicoes SQLS");
 
                 slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
