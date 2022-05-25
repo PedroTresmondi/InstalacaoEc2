@@ -37,9 +37,9 @@ public class ConsultaBanco {
 
     //Consulta IDMAQUINA da tabela Usuario SQL DOCKER
     public String getIDMaquinaSQL() {
-        List IdMaqBanco = conSQL.queryForList("select ID from maquina WHERE hostName = ? ORDER BY id DESC",
+        List IdMaqBancoSQL = conSQL.queryForList("select ID from maquina WHERE hostName = ? ORDER BY id DESC",
                 reqMaq.getHostname());
-        return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
+        return IdMaqBancoSQL.get(0).toString().replace("{ID=", "").replace("}", "");
     }
 
 }
