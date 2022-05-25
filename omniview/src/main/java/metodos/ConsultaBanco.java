@@ -21,7 +21,8 @@ public class ConsultaBanco {
     JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
     
     metodos.RecursosComputador reqMaq = new RecursosComputador();
-    public String idMaqBancoString = getIDMaquina();
+    public String idMaqBancoStringAzure = getIDMaquinaAzure();
+    public String idMaqBancoSQLString = getIDMaquinaSQL();
 
     //Consulta FKEstUser da tabela Usuario AZURE
     public Integer getFKEst(String email) {
@@ -29,10 +30,10 @@ public class ConsultaBanco {
                 Integer.class, email);
     }
 
-    public String getIDMaquina() {
-        List IdMaqBanco = con.queryForList("select ID from Maquina WHERE hostName = ? ORDER BY id DESC",
+    public String getIDMaquinaAzure() {
+        List IdMaqBancoAzure = con.queryForList("select ID from Maquina WHERE hostName = ? ORDER BY id DESC",
                 reqMaq.getHostname());
-        return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
+        return IdMaqBancoAzure.get(0).toString().replace("{ID=", "").replace("}", "");
     }
 
     //Consulta IDMAQUINA da tabela Usuario SQL DOCKER

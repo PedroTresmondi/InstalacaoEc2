@@ -117,17 +117,17 @@ public class AutenticarLogin {
             if (checkCaixa == true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Caixa!");
 
-                con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+                con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqAzure = con.queryForList("SELECT * FROM "
-                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquinaAzure());
                 updateMaqAzure.get(0).toString().replace("{EMAIL=", "").replace("}", "");
                 System.out.println(updateMaqAzure);
                 System.out.println("Caixa cadastrado na AZURE ID: "
                         + cnstBanco.getIDMaquinaSQL());
 
-                conSQL.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+                conSQL.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqSQL = con.queryForList("SELECT * FROM "
-                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+                        + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquinaSQL());
                 updateMaqSQL.get(0).toString().replace("{EMAIL=", "").replace("}", "");
                 System.out.println(updateMaqSQL);
                 System.out.println("Caixa cadastrado no MYSQL ID: "
@@ -149,16 +149,16 @@ public class AutenticarLogin {
         if (userAutenticado == true) {
             if (checkTotem = true) {
                 JOptionPane.showMessageDialog(null, "Você cadastrou um Totem!");
-                con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
+                con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqAzure = con.queryForList("SELECT * FROM "
-                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
+                        + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 updateMaqAzure.get(0).toString().replace("{EMAIL=", "").replace("}", "");
                 System.out.println(updateMaqAzure);
                 System.out.println("Totem cadastrado na AZURE ID: "
-                        + cnstBanco.getIDMaquina());
+                        + cnstBanco.getIDMaquinaAzure());
                 System.out.println(updateMaqAzure);
 
-                conSQL.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
+                conSQL.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquinaAzure());
                 List updateMaqSQL = con.queryForList("SELECT * FROM "
                         + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquinaSQL());
                 updateMaqSQL.get(0).toString().replace("{EMAIL=", "").replace("}", "");

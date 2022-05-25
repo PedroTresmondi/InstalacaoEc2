@@ -77,14 +77,14 @@ public class MedicoesComputador {
                         + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,GETDATE(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquinaAzure());
                 System.out.println("Inserindo dados na tabela medicoes");
 
                 conSQL.update("Insert into medicoes"
                         + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,NOW(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquinaSQL());
                 System.out.println("Inserindo dados na tabela medicoes SQLS");
 
                 slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
