@@ -6,6 +6,7 @@ package metodos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
+import com.mycompany.omniview.ConnectionMysql;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,6 +26,9 @@ public class MedicoesComputador {
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     RecursosComputador rec = new RecursosComputador();
     metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
+    
+        ConnectionMysql configMySQL = new ConnectionMysql();
+    JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
 
     public Double getMemoriaRam() {
         Long memoriaByte = looca.getMemoria().getEmUso();
@@ -68,6 +72,13 @@ public class MedicoesComputador {
                          getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes");
+                
+                   conSQL.update("Insert into medicoes"
+                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
+                        + "values (?, ?, ?, ?,NOW(),?)",
+                        getMemoriaRam(), getDiscoDisponivel(),
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+                System.out.println("Inserindo dados na tabela medicoes SQLS");
             }
         }, delay, interval);
     }

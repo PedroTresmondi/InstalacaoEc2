@@ -75,10 +75,8 @@ cd ..
 
 cd Desktop
 sudo git clone https://github.com/PedroTresmondi/InstalacaoEc2.git
-cd InstalacaoEc2/
-cd ominiviewGUI/
-cd target/
-java -jar omniview-1.0-SNAPSHOT-jar-with-dependencies.jar
+
+echo "Conecte usando o RPD!"
 
 
                                                                                         
