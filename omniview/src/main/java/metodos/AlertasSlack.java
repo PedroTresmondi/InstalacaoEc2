@@ -10,6 +10,7 @@ public class AlertasSlack {
 
     AutenticarLogin loginAutenticado = new AutenticarLogin();
     metodos.RecursosComputador reqMaq = new RecursosComputador();
+    IntegracaoSlack validacao = new IntegracaoSlack();
     Looca looca = new Looca();
     
     String alertaBaixo = ":large_green_circle:";
@@ -17,7 +18,7 @@ public class AlertasSlack {
     String alertaGrave = ":rotating_light:";
 
     public void alertaRam(Double ramEmUso, Double ramTotal, String hostName) {
-        
+
         String tipoComponente = "Memoria Ram";
         Double ramLivre = ramTotal - ramEmUso;
         memoriaRam = ramTotal;
@@ -28,13 +29,23 @@ public class AlertasSlack {
             try {
                 if (ramEmUso >= alertaConsumoTotalRam) {
                     tipoAlerta = "Alerta de Ram - Ram acima de 90%";
-                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta,alertaGrave, hostName, tipoComponente, ramLivre);
-                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta,alertaGrave, hostName, tipoComponente, ramLivre);
-                } else if (ramEmUso >= alertaDeRamGrave ) {
+                    if (validacao.consultaEmpresa() == 1) {
+                        IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaGrave,
+                                hostName, tipoComponente, ramLivre);
+                    } else {
+                        IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaGrave,
+                                hostName, tipoComponente, ramLivre);
+                    }
+                } else if (ramEmUso >= alertaDeRamGrave) {
                     tipoAlerta = "Alerta de Ram - 50% de Ram utilizada";
-                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
-                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta,alertaMedio, hostName, tipoComponente, ramLivre);
-                } 
+                    if (validacao.consultaEmpresa() == 1) {
+                        IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio,
+                                hostName, tipoComponente, ramLivre);
+                    } else {
+                        IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio,
+                                hostName, tipoComponente, ramLivre);
+                    }
+                }
             } catch (Exception e) {
                 System.out.println("erro");
             }
@@ -53,13 +64,25 @@ public class AlertasSlack {
             try {
                 if (discoEmUso >= alertaDeDisco) {
                     tipoAlerta = "Alerta de Disco - 50% de disco utilizado";
-                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
-                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                    if (validacao.consultaEmpresa() == 1) {
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio,
+                            hostName, tipoComponente, discoLivre);
+                        
+                    } else {
+                    IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio,
+                            hostName, tipoComponente, discoLivre);
+                    }
                 }
                 else if (discoEmUso >=  alertaDeDiscoGrave) {
                     tipoAlerta = "Alerta de Disco - Disco acima de 90%";
-                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
-                     IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio, hostName, tipoComponente, discoLivre);
+                    if (validacao.consultaEmpresa() == 1) {
+                    IntegracaoSlack.getEnviaAlertasCmMikeys(tipoAlerta, alertaMedio,
+                            hostName, tipoComponente, discoLivre);
+                        
+                    } else {
+                     IntegracaoSlack.getEnviaAlertasBurgerqueen(tipoAlerta, alertaMedio,
+                             hostName, tipoComponente, discoLivre);
+                    }
                 }
             } catch (Exception e) {
                 System.out.println("erro");
