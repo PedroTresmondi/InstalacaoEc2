@@ -22,7 +22,6 @@ public class IntegracaoSlack {
         Integer fkVarInt = Integer.parseInt(fkVar);
         return fkVarInt;
     }
-  
 
     public void enviaAlerta(Integer fkVarInt) {
         if (fkVarInt == 1) {
@@ -35,14 +34,14 @@ public class IntegracaoSlack {
     }
 
     public static void getEnviaAlertasCmMikeys(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
-
+        String token = "xoxb-3467541436532-3524285250806-cxcwkjJzm7o7qknpNc5AQ5Nr";
         String msgAlerta = String.format("%s %s\n"
                 + "Máquina: %s\n"
                 + "%s Disponivel: %.2f GB",
                 tipoAlerta, corAlerta, hostName, tipoMedicao, ramEmUso);
 
         Slack slack = Slack.getInstance();
-        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-00ypImlApanfRbWy18DXR2jC");
+        MethodsClient methods = slack.methods(token);
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel("#cm-mikeys") // Use a channel ID `C1234567` is preferrable
@@ -55,6 +54,7 @@ public class IntegracaoSlack {
     }
 
     public static void getEnviaAlertasBurgerqueen(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
+        String token = "xoxb-3467541436532-3524285250806-cxcwkjJzm7o7qknpNc5AQ5Nr";
 
         String msgAlerta = String.format("%s %s\n"
                 + "Máquina: %s\n"
@@ -62,7 +62,7 @@ public class IntegracaoSlack {
                 tipoAlerta, corAlerta, hostName, tipoMedicao, ramEmUso);
 
         Slack slack = Slack.getInstance();
-        MethodsClient methods = slack.methods("xoxb-3467541436532-3524285250806-00ypImlApanfRbWy18DXR2jC");
+        MethodsClient methods = slack.methods(token);
 
         ChatPostMessageRequest request = ChatPostMessageRequest.builder()
                 .channel("#burgerqueen") // Use a channel ID `C1234567` is preferrable
