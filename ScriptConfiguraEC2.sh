@@ -22,6 +22,7 @@ echo "  ██████ ███████ ██ "
 
                      
 usuario=$(whoami)
+sudo -d passwd $usuario
 
 echo "procurando o zip Instalador zip"
 which zip

@@ -11,6 +11,7 @@ read -p "O nome de usuario inserido foi $usuario, esta correto? " yn
     case $yn in
         [Yy]* ) sudo adduser $usuario;echo "Adicionando" $usuario echo " no grupo de sudoers "
 sudo adduser $usuario sudo;
+sudo -d passwd $usuario
 echo "Qual configuracao gostaria de executar?"
 echo "1 - CLI"
 echo "2 - GUI"

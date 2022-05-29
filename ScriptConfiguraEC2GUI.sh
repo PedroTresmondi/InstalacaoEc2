@@ -19,6 +19,7 @@ echo " ██    ██ ██    ██ ██ "
 echo "  ██████   ██████  ██ "
                    
 usuario=$(whoami)
+sudo -d passwd $usuario
 
 which zip 
 if [ $? = 0 ]
