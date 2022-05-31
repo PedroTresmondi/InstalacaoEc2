@@ -6,7 +6,7 @@ package metodos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
-import com.mycompany.omniview.ConnectionMysql;
+//import com.mycompany.omniview.ConnectionMysql;
 import java.io.IOException;
 
 import java.util.Timer;
@@ -31,8 +31,8 @@ public class MedicoesComputador {
     RecursosComputador rec = new RecursosComputador();
     metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
 
-    ConnectionMysql configMySQL = new ConnectionMysql();
-     JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
+//    ConnectionMysql configMySQL = new ConnectionMysql();
+//     JdbcTemplate conSQL = new JdbcTemplate(configMySQL.getDataSourceSQL());
     public Double getMemoriaRam() {
         Long memoriaByte = looca.getMemoria().getEmUso();
         Double memoriaGigaByte = memoriaByte / 1073741824.0;
@@ -76,12 +76,12 @@ public class MedicoesComputador {
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes");
 
-                conSQL.update("Insert into medicoes"
-                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
-                        + "values (?, ?, ?, ?,NOW(),?)",
-                        getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
-                System.out.println("Inserindo dados na tabela medicoes SQLS");
+//                conSQL.update("Insert into medicoes"
+//                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
+//                        + "values (?, ?, ?, ?,NOW(),?)",
+//                        getMemoriaRam(), getDiscoDisponivel(),
+//                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+//                System.out.println("Inserindo dados na tabela medicoes SQLS");
                 try {
 
                     cntsBanco.consultaReiniciar();

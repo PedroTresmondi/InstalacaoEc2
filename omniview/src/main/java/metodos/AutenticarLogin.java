@@ -16,6 +16,7 @@ public class AutenticarLogin {
     private String id;
     public Integer FkEstt;
     private boolean userAutenticado = false;
+    metodos.Log log = new Log();
 
     public boolean isUserAutenticado() {
         return userAutenticado;
@@ -77,7 +78,7 @@ public class AutenticarLogin {
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
         metodos.AutenticarLogin emailFK = new AutenticarLogin();
         metodos.AlertasSlack slack = new AlertasSlack();
-        metodos.Log log = new Log();
+        
         TelaLogin teste = new TelaLogin();
 
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
@@ -87,6 +88,7 @@ public class AutenticarLogin {
         if (usuario.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
+            log.gerarLog("erro ao realizar login ");
 
         } else {
             setUserAutenticado(true);
@@ -101,7 +103,7 @@ public class AutenticarLogin {
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
-            log.gerarLog();
+            log.gerarLog(" Login bem sucedido ");
             
         }
 
@@ -123,8 +125,11 @@ public class AutenticarLogin {
                 System.out.println(updateMaq);
                 System.out.println("Caixa cadastrado no ID: "
                         + cnstBanco.getIDMaquina());
+                log.gerarLog(" caixa cadastrado ");
+                
             } else {
-                System.out.println("caixa nao cadastrado");
+                System.out.println(" caixa nao cadastrado ");
+                
             }
 
         }
@@ -146,6 +151,7 @@ public class AutenticarLogin {
                 System.out.println(updateMaq);
                 System.out.println("Totem cadastrado no ID: "
                         + cnstBanco.getIDMaquina());
+                log.gerarLog("totem cadastrado ");
 
             } else {
                 System.out.println("totem nao cadastrado");

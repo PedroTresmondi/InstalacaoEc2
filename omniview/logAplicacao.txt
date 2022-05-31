@@ -1,2 +1,25 @@
-Maquina DESKTOP-ULIAJHQ Registrada em: 2022-05-29 12:34:25.255
-login sucedido 
+Login bem sucedido totem cadastrado 30/05/2022Login bem sucedido 
+30/05/2022caixa cadastrado
+
+ 2022-05-30 20:17:16.369Login bem sucedido 
+ 2022-05-30 20:17:25.322caixa cadastrado 
+ 2022-05-30 20:23:22.96Maquina MTZNOTFS032489 Login bem sucedido  
+ 2022-05-30 20:23:29.706Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 20:25:38.95 Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 20:25:50.823 Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 20:41:41.041: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 20:42:06.65: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 20:57:42.877: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 20:57:49.832: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 21:15:34.807: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 21:15:44.756: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 21:22:35.699: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 21:22:42.86: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 21:29:39.464: Maquina MTZNOTFS032489erro ao enviar alerta pro slack
+2022-05-30 21:29:40.191: Maquina MTZNOTFS032489erro ao enviar alerta pro slack
+2022-05-30 21:29:40.501: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 21:29:51.58: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-30 21:31:49.942: Maquina MTZNOTFS032489erro ao enviar alerta pro slack
+2022-05-30 21:31:50.538: Maquina MTZNOTFS032489erro ao enviar alerta pro slack
+2022-05-30 21:31:50.864: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-30 21:32:12.487: Maquina MTZNOTFS032489 caixa cadastrado 

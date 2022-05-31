@@ -13,6 +13,7 @@ public class IntegracaoSlack {
     Connection config = new Connection();
     JdbcTemplate con = new JdbcTemplate(config.getDatasource());
     metodos.RecursosComputador reqMaq = new RecursosComputador();
+    Log log = new Log();
 
     public Integer consultaEmpresa() {
         List IdMaqBanco = con.queryForList("select Fk_EstMaq from Maquina where hostName = ? ORDER BY ID DESC",
@@ -33,7 +34,7 @@ public class IntegracaoSlack {
 
     }
 
-    public static void getEnviaAlertasCmMikeys(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
+    public void getEnviaAlertasCmMikeys(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
         String slcT1 = "xoxb-";
         String slcT12 = "3467541436532-";
         String slcT13 = "3524285250806-";
@@ -55,9 +56,10 @@ public class IntegracaoSlack {
 
         System.out.println(response);
         System.out.println(response.getError());
+     
     }
 
-    public static void getEnviaAlertasBurgerqueen(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
+    public void getEnviaAlertasBurgerqueen(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
         String slcT1 = "xoxb-";
         String slcT12 = "3467541436532-";
         String slcT13 = "3524285250806-";
