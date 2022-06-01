@@ -88,7 +88,7 @@ public class AutenticarLogin {
         if (usuario.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
                     + "senha incorretos");
-            log.gerarLog("erro ao realizar login ");
+            log.emergencia(" usuario não autenticado ");
 
         } else {
             setUserAutenticado(true);
@@ -103,7 +103,7 @@ public class AutenticarLogin {
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
-            log.gerarLog(" Login bem sucedido ");
+            log.normalizado(" usuario autenticado ");
             
         }
 
@@ -125,10 +125,11 @@ public class AutenticarLogin {
                 System.out.println(updateMaq);
                 System.out.println("Caixa cadastrado no ID: "
                         + cnstBanco.getIDMaquina());
-                log.gerarLog(" caixa cadastrado ");
+                log.normalizado(" caixa cadastrado ");
                 
             } else {
                 System.out.println(" caixa nao cadastrado ");
+                log.emergencia(" caixa não cadastrado ");
                 
             }
 
@@ -151,10 +152,11 @@ public class AutenticarLogin {
                 System.out.println(updateMaq);
                 System.out.println("Totem cadastrado no ID: "
                         + cnstBanco.getIDMaquina());
-                log.gerarLog("totem cadastrado ");
+                log.normalizado(" totem cadastrado ");
 
             } else {
-                System.out.println("totem nao cadastrado");
+                System.out.println(" totem nao cadastrado ");
+                log.emergencia(" caixa não cadastrado ");
             }
 
         }

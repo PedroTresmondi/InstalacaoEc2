@@ -15,7 +15,7 @@ public class Connection {
     // Exemplo de configuração utilizando H2
     // Obs. O código comentado é um exemplo de como se conectar ao mysql
     public Connection() {
-     
+    
         this.datasource = new BasicDataSource();
         //this.datasource.setDriverClassName("jdbc:sqlserver://meubanco.database.windows.net/meu_banco");
         this.datasource.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -30,7 +30,7 @@ public class Connection {
         //this.datasource.setUsername("root");
         // senha padrao utilizada no container MySQL
         //this.datasource.setPassword("teste");
-       
+           
     }
 
     public BasicDataSource getDatasource() {

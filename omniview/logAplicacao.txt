@@ -23,3 +23,29 @@ Login bem sucedido totem cadastrado 30/05/2022Login bem sucedido
 2022-05-30 21:31:50.538: Maquina MTZNOTFS032489erro ao enviar alerta pro slack
 2022-05-30 21:31:50.864: Maquina MTZNOTFS032489 Login bem sucedido 
 2022-05-30 21:32:12.487: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-31 11:12:42.533: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:12:49.583: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-31 11:16:01.002: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:16:40.713: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-31 11:18:08.637: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:18:36.081: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-31 11:21:47.004: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:21:59.127: Maquina MTZNOTFS032489totem cadastrado 
+2022-05-31 11:25:33.147: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:25:50.384: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-05-31 11:34:02.26: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-05-31 11:34:08.322: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-06-01 17:56:31.492: Maquina MTZNOTFS032489 Login bem sucedido 
+2022-06-01 17:56:37.97: Maquina MTZNOTFS032489 caixa cadastrado 
+2022-06-01 18:14:09.037: Maquina MTZNOTFS032489 [OK]  realizar login 
+2022-06-01 18:14:17.152: Maquina MTZNOTFS032489 [OK]  caixa cadastrado 
+2022-06-01 18:16:30.336: Maquina MTZNOTFS032489 [ERRO] teste
+2022-06-01 18:16:32.004: Maquina MTZNOTFS032489 [ERRO] teste
+2022-06-01 18:16:32.328: Maquina MTZNOTFS032489 [OK]  realizar login 
+2022-06-01 18:17:39.35: Maquina MTZNOTFS032489 [OK]  caixa cadastrado 
+2022-06-01 18:35:26.339MTZNOTFS032489 [ERRO]  inserção tabela maquina - [AZURE]
+2022-06-01 18:35:30.319MTZNOTFS032489 [OK]  realizar login 
+2022-06-01 18:35:39.182MTZNOTFS032489 [OK]  caixa cadastrado 
+[2022-06-01 18:43:47.224] MTZNOTFS032489 [ERRO]  realizar login 
+[2022-06-01 19:23:40.705] MTZNOTFS032489 [OK]  usuario autenticado 
+[2022-06-01 19:23:49.697] MTZNOTFS032489 [OK]  caixa cadastrado 

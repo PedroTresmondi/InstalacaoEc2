@@ -56,7 +56,11 @@ public class IntegracaoSlack {
 
         System.out.println(response);
         System.out.println(response.getError());
-     
+
+        if (response.isOk() == false) {
+            log.emergencia("enviar alerta ao slack");
+        }
+
     }
 
     public void getEnviaAlertasBurgerqueen(String tipoAlerta, String corAlerta, String hostName, String tipoMedicao, Double ramEmUso) throws Exception {
@@ -81,5 +85,9 @@ public class IntegracaoSlack {
 
         System.out.println(response);
         System.out.println(response.getError());
+
+        if (response.isOk() == false) {
+            log.emergencia("enviar alerta ao slack");
+        }
     }
 }

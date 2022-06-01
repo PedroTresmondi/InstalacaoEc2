@@ -24,6 +24,8 @@ public class RecursosComputador {
     private Double memoriaRamTotal;
     private Double discoTotal;
     public String hostName;
+    
+    Log log = new Log();
 
     public RecursosComputador() {
     }
@@ -86,6 +88,8 @@ public class RecursosComputador {
     }
 
     public void inserirMaquinas(Integer estUsuario) {
+        
+        try {
         con.update("INSERT INTO MAQUINA(hostName,"
                 + "tipo,sistemaOperacional,ramTotal,arquitetura,"
                 + "processador,disco,Fk_EstMaq,reiniciar) VALUES "
@@ -95,7 +99,12 @@ public class RecursosComputador {
                 getProcessador(),
                 getDiscoTotal(), estUsuario);
         System.out.println("inserindo dados na máquina: " + this.hostName);
+            
+        } catch (Exception e) {
+            log.emergencia(" inserção tabela maquina - [SQL]");
+        }
 
+//        try {
 //        conSQL.update("INSERT INTO omniviewbd.maquina(hostName,"
 //                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
 //                + "processador,disco,Fk_EstMaq) VALUES "
@@ -105,6 +114,10 @@ public class RecursosComputador {
 //                getProcessador(),
 //                getDiscoTotal(), estUsuario);
 //        System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
+            
+//        } catch (Exception e) {
+//            log.emergencia(" inserção tabela maquina - [MySql]");
+//        }
     }
 
 }

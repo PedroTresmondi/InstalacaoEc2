@@ -14,11 +14,15 @@ import java.time.format.DateTimeFormatter;
 
 public class Log {
     
-//    String msg;
-        String strLocalDate = LocalDateTime.now().format
-        (DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
+      public void emergencia(String texto){
+            gerarLog( " [ERRO] ", texto);
+    }
+    
+    public void normalizado(String texto){
+            gerarLog(" [OK] ", texto);
+    }
 
-    public void gerarLog(String msg) {
+    public void gerarLog(String tipo, String msg) {
  
         metodos.RecursosComputador recMaq = new RecursosComputador();
         File arquivoLog = new File("logAplicacao.txt");
@@ -32,8 +36,7 @@ public class Log {
             FileWriter fileWriter = new FileWriter(arquivoLog, true);
             Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("\n" + dataDeHoje.toString()  + ": Maquina " + recMaq.getHostname() + msg);
-//            out.append("Maquina " + recMaq.getHostname() + " Registrada em: " + dataDeHoje.toString() + "\n");
+            bufferedWriter.write("\n" + "["+dataDeHoje.toString()+"] " + recMaq.getHostname() + tipo + msg);
             bufferedWriter.close();
 
         } catch (IOException e) {
