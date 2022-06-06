@@ -11,6 +11,8 @@ import user.User;
 
 public class AutenticarLogin {
 
+    metodos.Log log = new Log();
+
     private String email;
     private String senha;
     private String id;
@@ -105,15 +107,17 @@ public class AutenticarLogin {
                 this.email = emailUsuarioBanco;
 
                 FkEstt = cnstBanco.getFKEst(email);
-               
+
                 cnstBanco.getFKEst(email);
                 regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
-                
-                 registrarMaq.escolhaMaquina();
+
+                registrarMaq.escolhaMaquina();
                 //cnstBanco.getFKEst(emailFK.getEmail());
 
                 medMaq.inserirMedicao();
-                log.gerarLog();
+                slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
+                slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
+                log.normalizado(" usuario autenticado ");
 
             }
 
@@ -126,14 +130,21 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
-        System.out.println("Você cadastrou um Caixa!");
-        con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
-        List updateMaq = con.queryForList("SELECT * FROM "
-                + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
-        updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-        System.out.println(updateMaq);
-        System.out.println("Caixa cadastrado no ID: "
-                + cnstBanco.getIDMaquina());
+        try {
+            System.out.println("Você cadastrou um Caixa!");
+            con.update("UPDATE MAQUINA SET TIPO='C' WHERE ID = ?", cnstBanco.getIDMaquina());
+            List updateMaq = con.queryForList("SELECT * FROM "
+                    + "MAQUINA  WHERE ID =?", cnstBanco.getIDMaquina());
+            updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+            System.out.println(updateMaq);
+            System.out.println("Caixa cadastrado no ID: "
+                    + cnstBanco.getIDMaquina());
+            log.normalizado(" totem cadastrado ");
+
+        } catch (Exception e) {
+            System.out.println(" totem nao cadastrado ");
+            log.emergencia(" caixa não cadastrado ");
+        }
 
     }
 
@@ -142,14 +153,21 @@ public class AutenticarLogin {
         JdbcTemplate con = new JdbcTemplate(config.getDatasource());
         metodos.ConsultaBanco cnstBanco = new ConsultaBanco();
 
-        System.out.println("Você cadastrou um Totem!");
-        con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
-        List updateMaq = con.queryForList("SELECT * FROM "
-                + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
-        updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
-        System.out.println(updateMaq);
-        System.out.println("Totem cadastrado no ID: "
-                + cnstBanco.getIDMaquina());
+        try {
+
+            System.out.println("Você cadastrou um Totem!");
+            con.update("UPDATE MAQUINA SET TIPO='T' WHERE ID = ?", cnstBanco.getIDMaquina());
+            List updateMaq = con.queryForList("SELECT * FROM "
+                    + "MAQUINA WHERE ID = ?", cnstBanco.getIDMaquina());
+            updateMaq.get(0).toString().replace("{EMAIL=", "").replace("}", "");
+            System.out.println(updateMaq);
+            System.out.println("Totem cadastrado no ID: "
+                    + cnstBanco.getIDMaquina());
+
+        } catch (Exception e) {
+            System.out.println(" caixa nao cadastrado ");
+            log.emergencia(" caixa não cadastrado ");
+        }
 
     }
 
