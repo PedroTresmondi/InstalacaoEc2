@@ -243,12 +243,18 @@ public class TelaLogin extends javax.swing.JFrame {
         login.AutenticarLogin(email, senha, usuario.getEmail(), usuario.getSenha());
         if (checkCaixa.isSelected()) {
             login.RegistrarCaixa(evt, rootPaneCheckingEnabled);
-            dispose();
-            new MedicaoSwing().setVisible(true);
+            if (login.isUserAutenticado() == true) {
+                dispose();
+
+                new MedicaoSwing().setVisible(true);
+            }
         } else if (checkTotem.isSelected()) {
             login.RegistrarTotem(evt, rootPaneCheckingEnabled);
-            dispose();
-            new MedicaoSwing().setVisible(true);
+
+            if (login.isUserAutenticado() == true) {
+                dispose();
+                new MedicaoSwing().setVisible(true);
+            }
 
         }
     }//GEN-LAST:event_btnEntrarActionPerformed

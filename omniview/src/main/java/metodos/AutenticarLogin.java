@@ -6,6 +6,7 @@ import javaswing.TelaLogin;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.swing.JOptionPane;
+import jdk.nashorn.api.tree.BreakTree;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import user.User;
 
@@ -81,16 +82,22 @@ public class AutenticarLogin {
         
         TelaLogin teste = new TelaLogin();
 
+        
         List<User> usuario = con.query("SELECT EMAIL, SENHA FROM USUARIO "
                 + "WHERE EMAIL =? and SENHA =?",
                 new BeanPropertyRowMapper<>(User.class), email, senha);
-
-        if (usuario.isEmpty()) {
+       
+        System.out.println( "state user: "+ cnstBanco.getStateUser(email));
+        
+        
+        if (usuario.isEmpty() || cnstBanco.getStateUser(email).equals("0")) {
             JOptionPane.showMessageDialog(null, "Acesso negado \n Usuário ou "
-                    + "senha incorretos");
-            log.emergencia(" usuario não autenticado ");
+                    + "incorreto ou desabilitado!");
+            setUserAutenticado(false);
+            log.emergencia(" usuario não autenticado ou desabilitado ");
+          
 
-        } else {
+        } else{
             setUserAutenticado(true);
             regMaq.getHostname();
             this.email = emailUsuarioBanco;
@@ -103,7 +110,7 @@ public class AutenticarLogin {
             slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
             slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
             FkEstt = cnstBanco.getFKEst(email);
-            log.normalizado(" usuario autenticado ");
+            log.normalizado(" usuario autenticados");
             
             
         }

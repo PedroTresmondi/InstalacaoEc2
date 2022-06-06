@@ -29,7 +29,7 @@ public class ConsultaBanco {
     public void checaReiniciar() throws IOException {
         if (reiniciarM == 1) {
             con.update("UPDATE maquina SET reiniciar = 0 where id = ?", getIDMaquina());
-            Runtime.getRuntime().exec("reboot");
+            Runtime.getRuntime().exec("sudo reboot");
 
             System.out.println(String.format("Maquina %s reiniciando", reqMaq.hostName));
 
@@ -50,6 +50,10 @@ public class ConsultaBanco {
         List IdMaqBanco = con.queryForList("select ID from Maquina WHERE hostName = ? ORDER BY id DESC",
                 reqMaq.getHostname());
         return IdMaqBanco.get(0).toString().replace("{ID=", "").replace("}", "");
+    }
+        public String getStateUser(String email) {
+        List stateUser = con.queryForList("select status_user from usuario where email = ?",email);
+        return stateUser.get(0).toString().replace("{status_user=", "").replace("}", "");
     }
 
 }

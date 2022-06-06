@@ -97,8 +97,9 @@ public class AutenticarLogin {
                     + "WHERE EMAIL =? and SENHA =?",
                     new BeanPropertyRowMapper<>(User.class), email, senha);
 
-            if (email.isEmpty() && (senha.isEmpty())) {
-                System.out.println("Usuario invalido");
+            if (email.isEmpty() && (senha.isEmpty()) || cnstBanco.getStateUser(email).equals("0")) {
+                System.out.println("Usuario invalido ou desabilitado!");
+                setUserAutenticado(false);
             } else {
                 System.out.println("Usuario autenticado");
                 setUserAutenticado(true);
