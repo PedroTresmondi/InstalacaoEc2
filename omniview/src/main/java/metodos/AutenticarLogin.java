@@ -105,6 +105,7 @@ public class AutenticarLogin {
             FkEstt = cnstBanco.getFKEst(email);
             log.normalizado(" usuario autenticado ");
             
+            
         }
 
     }

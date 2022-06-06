@@ -49,3 +49,5 @@ Login bem sucedido totem cadastrado 30/05/2022Login bem sucedido
 [2022-06-01 18:43:47.224] MTZNOTFS032489 [ERRO]  realizar login 
 [2022-06-01 19:23:40.705] MTZNOTFS032489 [OK]  usuario autenticado 
 [2022-06-01 19:23:49.697] MTZNOTFS032489 [OK]  caixa cadastrado 
+[2022-06-06 09:35:14.439] DESKTOP-ULIAJHQ [OK]  usuario autenticado 
+[2022-06-06 09:35:19.646] DESKTOP-ULIAJHQ [OK]  totem cadastrado 

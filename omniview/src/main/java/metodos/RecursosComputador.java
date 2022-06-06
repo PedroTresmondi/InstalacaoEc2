@@ -101,7 +101,7 @@ public class RecursosComputador {
             System.out.println("inserindo dados na máquina: " + this.hostName);
 
         } catch (Exception e) {
-            log.emergencia(" inserção tabela maquina - [SQL]");
+            log.emergencia(" inserção tabela maquina - [SQL SERVER]");
         }
 
         try {
