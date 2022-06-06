@@ -114,7 +114,6 @@ public class MedicaoSwing extends javax.swing.JFrame {
         jLabel1.setText("Máquina cadastrada");
 
         hostnameSwing.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        hostnameSwing.setText("teste");
         hostnameSwing.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 hostnameSwingComponentShown(evt);
@@ -221,7 +220,7 @@ public class MedicaoSwing extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, Short.MAX_VALUE)
         );
 
         pack();
