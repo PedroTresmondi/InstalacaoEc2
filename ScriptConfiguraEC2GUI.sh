@@ -83,7 +83,11 @@ echo " ██      ██ ██      ██     ██████  ██   �
 
 sudo passwd $usuario
 
-sleep 15
+
+echo "Conecte usando o RPD!, em 20 segundos o arquivo será baixado no desktop"
+
+
+sleep 20
 
 
 cd ..
@@ -98,7 +102,7 @@ fi
 
 
  
-echo "Conecte usando o RPD!"
+
 
                                                      
                                                                                         
