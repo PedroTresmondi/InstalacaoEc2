@@ -92,6 +92,7 @@ echo "Conecte usando o RPD!, em 30 segundos o arquivo será baixado no desktop"
 
 sleep 35
 
+sudo -d passwd $usuario
 
 cd ..
 
