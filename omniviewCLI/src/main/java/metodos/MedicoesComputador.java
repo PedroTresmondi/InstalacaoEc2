@@ -71,20 +71,17 @@ public class MedicoesComputador {
 
             @Override
             public void run() {
+
                 con.update("Insert into medicoes"
                         + " (ram,usoDoDisco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,GETDATE(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes");
+                slack.alertaRam(getMemoriaRam(), rec.getMemoriaRamTotal(), rec.getHostname());
+                slack.alertaDisco(getDiscoDisponivel(), rec.getDiscoTotal(), rec.getHostname());
 
-                conSQL.update("Insert into medicoes"
-                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
-                        + "values (?, ?, ?, ?,NOW(),?)",
-                        getMemoriaRam(), getDiscoDisponivel(),
-                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
-                System.out.println("Inserindo dados na tabela medicoes SQLS");
-                try {
+                 try {
 
                     cntsBanco.consultaReiniciar();
                     cntsBanco.checaReiniciar();
@@ -93,6 +90,24 @@ public class MedicoesComputador {
                 }
             }
 
+        }, delay, interval);
+    }
+
+    public void inserirMedicaoMYSQL() {
+        int delay = 5000;
+        int interval = 7000;
+
+        timer1.scheduleAtFixedRate(new TimerTask() {
+
+            @Override
+            public void run() {
+                conSQL.update("Insert into medicoes"
+                        + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
+                        + "values (?, ?, ?, ?,NOW(),?)",
+                        getMemoriaRam(), getDiscoDisponivel(),
+                        getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
+                System.out.println("Inserindo dados na tabela medicoes SQLS");
+            }
         }, delay, interval);
     }
 

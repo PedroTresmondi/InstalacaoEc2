@@ -116,8 +116,8 @@ public class AutenticarLogin {
                 //cnstBanco.getFKEst(emailFK.getEmail());
 
                 medMaq.inserirMedicao();
-                slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
-                slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
+                medMaq.inserirMedicaoMYSQL();
+
                 log.normalizado(" usuario autenticado ");
 
             }
