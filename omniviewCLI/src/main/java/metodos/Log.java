@@ -4,31 +4,44 @@
  */
 package metodos;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Timestamp;
-import user.User;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Log {
+    
+      public void emergencia(String texto){
+            gerarLog( " [ERRO] ", texto);
+    }
+    
+    public void normalizado(String texto){
+            gerarLog(" [OK] ", texto);
+    }
 
-    public void gerarLog() {
+    public void gerarLog(String tipo, String msg) {
+ 
         metodos.RecursosComputador recMaq = new RecursosComputador();
-        
-       
-        File arquvoLog = new File("logAplicacao.txt");
+        File arquivoLog = new File("logAplicacao.txt");
+
         try {
-            if (arquvoLog.exists() == false) {
+            if (!arquivoLog.exists()) {
                 System.out.println("Criando novo Arquivo log");
-                arquvoLog.createNewFile();
+                arquivoLog.createNewFile();
             }
+        
+            FileWriter fileWriter = new FileWriter(arquivoLog, true);
             Timestamp dataDeHoje = new Timestamp(System.currentTimeMillis());
-            PrintWriter out = new PrintWriter(arquvoLog);
-            out.append("Maquina " + recMaq.getHostname() + " Registrada em: " + dataDeHoje.toString() + "\n");
-            out.append("login sucedido ");
-            out.close();
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write("\n" + "["+dataDeHoje.toString()+"] " + recMaq.getHostname() + tipo + msg);
+            bufferedWriter.close();
+
         } catch (IOException e) {
-            System.out.println("Nao foi possivel criar o log!");
+            e.printStackTrace();
+            e.getMessage();
         }
     }
 }

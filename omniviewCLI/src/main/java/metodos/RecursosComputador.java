@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class RecursosComputador {
-
+    Log log = new Log();
     private String processador;
     private Integer bitMaquina;
     private String sistemaOperacional;
@@ -85,26 +85,36 @@ public class RecursosComputador {
     }
 
     public void inserirMaquinas(Integer estUsuario) {
-        con.update("INSERT INTO [dbo].[maquina](hostName,"
-                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
-                + "processador,disco,Fk_EstMaq) VALUES "
-                + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
-                getMemoriaRamTotal(),
-                getArquiteturaSis(),
-                getProcessador(),
-                getDiscoTotal(), estUsuario);
-            System.out.println("inserindo dados na máquina pelo SQLSERVER: " + this.hostName);
-            
-            conSQL.update("INSERT INTO omniviewbd.maquina(hostName,"
-                + "tipo,sistemaOperacional,ramTotal,arquitetura,"
-                + "processador,disco,Fk_EstMaq) VALUES "
-                + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
-                getMemoriaRamTotal(),
-                getArquiteturaSis(),
-                getProcessador(),
-                getDiscoTotal(), estUsuario);
-        System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
 
+        try {
+            con.update("INSERT INTO MAQUINA(hostName,"
+                    + "tipo,sistemaOperacional,ramTotal,arquitetura,"
+                    + "processador,disco,Fk_EstMaq,reiniciar) VALUES "
+                    + " (?,null,?,?,?,?,?,?,0)", hostName, getSistemaOperacional(),
+                    getMemoriaRamTotal(),
+                    getArquiteturaSis(),
+                    getProcessador(),
+                    getDiscoTotal(), estUsuario);
+            System.out.println("inserindo dados na máquina: " + this.hostName);
+
+        } catch (Exception e) {
+            log.emergencia(" inserção tabela maquina - [SQL SERVER]");
+        }
+
+        try {
+            conSQL.update("INSERT INTO omniviewbd.maquina(hostName,"
+                    + "tipo,sistemaOperacional,ramTotal,arquitetura,"
+                    + "processador,disco,Fk_EstMaq) VALUES "
+                    + " (?,null,?,?,?,?,?,?)", hostName, getSistemaOperacional(),
+                    getMemoriaRamTotal(),
+                    getArquiteturaSis(),
+                    getProcessador(),
+                    getDiscoTotal(), estUsuario);
+            System.out.println("inserindo dados na máquina pelo SQL: " + this.hostName);
+
+        } catch (Exception e) {
+            log.emergencia(" inserção tabela maquina - [MySql]");
+        }
     }
 
   

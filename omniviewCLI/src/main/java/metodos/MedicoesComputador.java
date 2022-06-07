@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -7,8 +7,11 @@ package metodos;
 import com.github.britooo.looca.api.core.Looca;
 import com.mycompany.omniview.Connection;
 import com.mycompany.omniview.ConnectionMysql;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class MedicoesComputador {
@@ -65,7 +68,6 @@ public class MedicoesComputador {
         int interval = 7000;
 
         timer1.scheduleAtFixedRate(new TimerTask() {
-            metodos.ConsultaBanco cntsBanco = new ConsultaBanco();
 
             @Override
             public void run() {
@@ -74,20 +76,21 @@ public class MedicoesComputador {
                         + "values (?, ?, ?, ?,GETDATE(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
-                System.out.println("Inserindo dados na tabela medicoes SQLServer");
+                System.out.println("Inserindo dados na tabela medicoes");
 
-//                
-
-                 conSQL.update("Insert into medicoes"
+                conSQL.update("Insert into medicoes"
                         + " (ram,disco,cpuM,processos,diaHorario,Fk_MaqRe) "
                         + "values (?, ?, ?, ?,NOW(),?)",
                         getMemoriaRam(), getDiscoDisponivel(),
                         getCpuEmUso(), getProcessos(), cntsBanco.getIDMaquina());
                 System.out.println("Inserindo dados na tabela medicoes SQLS");
-                
-                
-                slack.alertaRam(memoriaRam, regMaq.getMemoriaRamTotal(), regMaq.getHostname());
-                slack.alertaDisco(getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
+                try {
+
+                    cntsBanco.consultaReiniciar();
+                    cntsBanco.checaReiniciar();
+                } catch (IOException ex) {
+                    Logger.getLogger(MedicoesComputador.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }, delay, interval);

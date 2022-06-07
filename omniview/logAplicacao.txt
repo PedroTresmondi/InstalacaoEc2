@@ -49,3 +49,19 @@ Login bem sucedido totem cadastrado 30/05/2022Login bem sucedido
 [2022-06-01 18:43:47.224] MTZNOTFS032489 [ERRO]  realizar login 
 [2022-06-01 19:23:40.705] MTZNOTFS032489 [OK]  usuario autenticado 
 [2022-06-01 19:23:49.697] MTZNOTFS032489 [OK]  caixa cadastrado 
+[2022-06-06 09:35:14.439] DESKTOP-ULIAJHQ [OK]  usuario autenticado 
+[2022-06-06 09:35:19.646] DESKTOP-ULIAJHQ [OK]  totem cadastrado 
+[2022-06-06 19:53:30.891] CERULEANCORP [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-06 19:53:35.191] CERULEANCORP [OK]  usuario autenticados
+[2022-06-06 19:53:40.931] CERULEANCORP [OK]  totem cadastrado 
+[2022-06-06 19:56:35.002] CERULEANCORP [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-06 19:56:38.892] CERULEANCORP [OK]  usuario autenticados
+[2022-06-06 19:56:44.816] CERULEANCORP [OK]  totem cadastrado 
+[2022-06-06 19:57:28.375] CERULEANCORP [ERRO]  usuario não autenticado ou desabilitado 
+[2022-06-06 20:03:25.481] CERULEANCORP [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-06 20:04:10.577] CERULEANCORP [ERRO]  usuario não autenticado ou desabilitado 
+[2022-06-06 20:05:30.97] CERULEANCORP [ERRO]  usuario não autenticado ou desabilitado 
+[2022-06-06 20:06:19.195] CERULEANCORP [ERRO]  usuario não autenticado ou desabilitado 
+[2022-06-06 20:07:05.055] CERULEANCORP [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-06 20:07:08.93] CERULEANCORP [OK]  usuario autenticados
+[2022-06-06 20:07:14.673] CERULEANCORP [OK]  totem cadastrado 
