@@ -1,6 +1,5 @@
 package com.mycompany.omniview;
 
-import metodos.IntegracaoSlack;
 
 public class OmniviewApp {
 

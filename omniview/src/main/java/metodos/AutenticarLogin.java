@@ -107,8 +107,8 @@ public class AutenticarLogin {
             regMaq.inserirMaquinas(cnstBanco.getFKEst(email));
             
             medMaq.inserirMedicao();
-            slack.alertaRam(medMaq.getMemoriaRam(), regMaq.getMemoriaRamTotal(), regMaq.getHostname());
-            slack.alertaDisco(medMaq.getDiscoDisponivel(), regMaq.getDiscoTotal(), regMaq.getHostname());
+            medMaq.inserirMedicaoMYSQL();
+    
             FkEstt = cnstBanco.getFKEst(email);
             log.normalizado(" usuario autenticados");
             

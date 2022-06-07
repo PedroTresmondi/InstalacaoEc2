@@ -65,3 +65,51 @@ Login bem sucedido totem cadastrado 30/05/2022Login bem sucedido
 [2022-06-06 20:07:05.055] CERULEANCORP [ERRO]  inserção tabela maquina - [MySql]
 [2022-06-06 20:07:08.93] CERULEANCORP [OK]  usuario autenticados
 [2022-06-06 20:07:14.673] CERULEANCORP [OK]  totem cadastrado 
+[2022-06-07 14:47:05.301] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 14:47:09.838] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 14:47:17.028] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 14:48:11.345] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 14:48:15.412] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 14:48:22.189] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 14:49:08.462] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 14:49:12.848] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 14:49:20.672] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 14:50:06.801] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 14:50:10.917] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 14:50:17.985] CPX-MSVO4I2PQ7H [OK]  caixa cadastrado 
+[2022-06-07 14:50:46.644] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 14:50:51.143] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 14:50:57.156] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:10:49.042] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:10:52.69] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:10:58.615] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:15:19.29] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:15:19.702] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:15:26.784] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:16:52.96] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:16:53.253] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:16:59.646] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:21:31.784] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:21:36.165] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:21:42.245] CPX-MSVO4I2PQ7H [OK]  caixa cadastrado 
+[2022-06-07 15:23:17.206] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:23:17.648] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:23:24.425] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:38:42.562] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:38:43.026] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:38:49.672] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:46:45.027] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:46:45.322] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:46:51.184] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:50:42.668] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:50:42.956] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:50:50.756] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:52:12.665] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:52:12.96] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:52:19.028] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:54:07.874] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:54:08.168] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:54:14.187] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
+[2022-06-07 15:55:07.87] CPX-MSVO4I2PQ7H [ERRO]  inserção tabela maquina - [MySql]
+[2022-06-07 15:55:08.202] CPX-MSVO4I2PQ7H [OK]  usuario autenticados
+[2022-06-07 15:55:13.946] CPX-MSVO4I2PQ7H [OK]  totem cadastrado 
